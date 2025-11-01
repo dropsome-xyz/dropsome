@@ -1,0 +1,70 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  background-image: radial-gradient(circle farthest-side at 50% 100%, rgba(1, 9, 18, 0),
+      rgba(1, 6, 14, 0.6) 36%,
+      rgba(1, 14, 29, 0.6) 55%,
+      rgba(02, 53, 73, 0.4));
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.wallet-adapter-button {
+  font-size: large;
+  font-weight: 600;
+  display: flex;
+  white-space: nowrap;
+  font-family: 'Orbitron', -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif !important;
+}
+
+.wallet-adapter-button:not([disabled]):hover {
+  background-color: #05F2DB;
+  border-radius: 6px;
+}
+
+.wallet-adapter-button-trigger {
+  background-color: #1a1f2e;
+  border-radius: 6px;
+}
+
+/* Hide default number input arrows for custom spinner */
+.no-spinner::-webkit-inner-spin-button,
+.no-spinner::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.no-spinner {
+  -moz-appearance: textfield;
+}
+
+@layer base {
+  img {
+    width: auto;
+    height: auto;
+  }
+}
+
+/* Remove default tap/active background for mobile drawer menu items */
+.drawer-side .menu li > *:not(ul):not(.menu-title):active,
+.drawer-side .menu li > *:not(ul):not(.menu-title):focus {
+  background-color: transparent;
+}
