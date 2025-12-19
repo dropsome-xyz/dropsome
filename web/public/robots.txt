@@ -1,0 +1,9 @@
+# https://www.robotstxt.org/robotstxt.html
+User-agent: *
+Allow: /refund
+Disallow: /
+
+content-signal: search=no
+content-signal: ai-input=no
+content-signal: ai-train=no
+

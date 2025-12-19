@@ -11,6 +11,7 @@ const Claim: NextPage = (props) => {
           name="description"
           content="Claim Your Drop"
         />
+        <meta name="robots" content="noindex, nofollow" />
       </Head>
       <ClaimView />
     </div>

@@ -11,6 +11,7 @@ const Refund: NextPage = (props) => {
           name="description"
           content="Refund Your Drop"
         />
+        <meta name="robots" content="index, follow" />
       </Head>
       <RefundView />
     </div>

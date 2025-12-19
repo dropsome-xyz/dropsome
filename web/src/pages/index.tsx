@@ -11,6 +11,7 @@ const Drop: NextPage = (props) => {
           name="description"
           content="Drop Some Funds"
         />
+        <meta name="robots" content="noindex, nofollow" />
       </Head>
       <DropView />
     </div>
