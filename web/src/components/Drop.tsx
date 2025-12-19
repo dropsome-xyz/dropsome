@@ -3,6 +3,7 @@ import { FC, useCallback, useState, useEffect, useRef, useMemo } from "react";
 import { notify } from "../utils/notifications";
 import { Program, AnchorProvider, web3, BN, setProvider, utils } from "@coral-xyz/anchor";
 import { SignActionLoader } from "./SignActionLoader";
+import { SenderDisclaimerDialog } from "./SenderDisclaimerDialog";
 import { ErrorHandler, ErrorCodes, getUserFriendlyMessage, isAppError } from "../utils/errorHandler";
 import { IDL_OBJECT, getApiToken, getBaseUrl } from "../utils/constants";
 import { AppState } from "../types/appState";
@@ -20,6 +21,7 @@ export const Drop: FC = () => {
     const [link, setLink] = useState("");
     const [signature, setSignature] = useState("");
     const [isDialogShown, setIsDialogShown] = useState(false);
+    const [isDisclaimerShown, setIsDisclaimerShown] = useState(false);
     const [isLoading, setIsLoading] = useState(false);
     const [appState, setAppState] = useState<AppState | null>(null);
     const isFetchingAppStateRef = useRef(false);
@@ -90,7 +92,6 @@ export const Drop: FC = () => {
     function buildLink(encryptedMnemonic: string): string {
         const link = `${getBaseUrl()}/claim?data=${encryptedMnemonic}`;
         setLink(link);
-        console.log(`Claim link: ${link}`);
         return link;
     }
 
@@ -300,8 +301,13 @@ export const Drop: FC = () => {
                     <h2 className="text-2xl font-bold mb-4 text-nova">Your Claim Link</h2>
                     <div className="relative group">
                         <div className="absolute -inset-0.5 bg-gradient-to-r from-vortex to-vortex rounded-lg blur opacity-40 animate-tilt" />
-                        <div className="relative max-w-xs max-sm:max-w-[280px] mx-auto textarea textarea-primary textarea-lg bg-primary border-2 border-[#5252529f] p-6 px-10 my-2 text-start">
+                        <div className="relative max-w-xs max-sm:max-w-[280px] mx-auto textarea textarea-primary textarea-lg bg-primary border-2 border-[#5252529f] p-8 px-10 my-2 text-start">
                             <p className="break-words">{link}</p>
+                            <button
+                                onClick={() => setIsDisclaimerShown(true)}
+                                className="absolute top-2 left-2 p-0 bg-transparent border-none cursor-pointer" >
+                                <img src="/security_tip.svg" alt="Security disclaimer" width={20}  height={20} />
+                            </button>
                             <button
                                 onClick={() => {
                                     navigator.clipboard.writeText(link);
@@ -353,6 +359,11 @@ export const Drop: FC = () => {
                     </div>
                 </div>
             )}
+
+            <SenderDisclaimerDialog 
+                isOpen={isDisclaimerShown} 
+                onClose={() => setIsDisclaimerShown(false)} 
+            />
         </div>
     );
 };

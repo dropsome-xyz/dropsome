@@ -9,12 +9,14 @@ import { Dropsome } from "../idl/dropsome"
 import { Record } from "types/record";
 import Link from "next/link";
 import { SignActionLoader } from "./SignActionLoader";
+import { ReceiverDisclaimerDialog } from "./ReceiverDisclaimerDialog";
 
 export const Claim: FC = () => {
     const connectedWallet = useWallet();
     const { connection } = useConnection();
     const [phrase, setPhrase] = useState('');
     const [isLoading, setIsLoading] = useState(false);
+    const [isDisclaimerShown, setIsDisclaimerShown] = useState(false);
     const isFetchingRecordRef = useRef(false);
 
     const getProvider = useMemo(() => {
@@ -222,6 +224,11 @@ export const Claim: FC = () => {
                                         Solflare Wallet
                                     </Link>
                                 </li>
+                                <li>
+                                    <Link href="https://backpack.app/" className="text-indigo-500 hover:text-indigo-300">
+                                        Backpack Wallet
+                                    </Link>
+                                </li>
                             </ul>
                         </li>
                         <li className="ml-6">
@@ -243,11 +250,21 @@ export const Claim: FC = () => {
                     <div className="relative group max-w-xs mx-auto">
                         <div className="absolute -inset-0.5 bg-gradient-to-r from-vortex to-vortex rounded-lg blur opacity-50 animate-tilt"></div>
                         <div className="relative max-w-xs mx-auto textarea textarea-primary textarea-lg bg-primary border-2 border-[#5252529f] p-6 px-10 my-2 text-start">
+                            <button
+                                onClick={() => setIsDisclaimerShown(true)}
+                                className="absolute top-2 left-2 p-0 bg-transparent border-none cursor-pointer">
+                                <img src="/security_tip.svg" alt="Security disclaimer" width={20} height={20} />
+                            </button>
                             <p className="text-2xl">{phrase}</p>
                         </div>
                     </div>
                 </div>)}
             </div>
+
+            <ReceiverDisclaimerDialog
+                isOpen={isDisclaimerShown}
+                onClose={() => setIsDisclaimerShown(false)}
+            />
         </div>
     );
 };
