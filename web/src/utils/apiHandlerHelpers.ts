@@ -11,8 +11,10 @@ export function checkClient(req: NextApiRequest, res: NextApiResponse) {
     const referer = req.headers.referer;
     if (!referer) return res.status(403).json({ error: "Access is denied." });
 
-    const host = new URL(referer).host.replace(/^www\./, "");
-    if (host !== new URL(process.env.NEXT_PUBLIC_BASE_URL).host) {
+    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "";
+    const allowedHost = baseUrl ? new URL(baseUrl).host.replace(/^www\./, "") : "";
+    const refererHost = new URL(referer).host.replace(/^www\./, "");
+    if (!allowedHost || refererHost !== allowedHost) {
         return res.status(403).json({ error: "Unacceptable origin." });
     }
 
