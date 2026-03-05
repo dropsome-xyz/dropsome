@@ -20,7 +20,19 @@ const WalletContextProvider: FC<{ children: ReactNode }> = ({ children }) => {
 
         if (networkConfiguration === 'custom') {
             const rpc = customRpcUrl || 'http://localhost:8899';
-            const ws = rpc.replace(/^https:\/\//, 'wss://').replace(/^http:\/\//, 'ws://');
+
+            let ws: string;
+            try {
+                const url = new URL(rpc);
+                const wsProtocol = url.protocol === 'https:' ? 'wss:' : 'ws:';
+                const port = url.port === '8899' ? '8900' : url.port;
+                const host = url.hostname;
+                const portPart = port ? `:${port}` : '';
+                ws = `${wsProtocol}//${host}${portPart}${url.pathname}`;
+            } catch {
+                ws = rpc.replace(/^https:\/\//, 'wss://').replace(/^http:\/\//, 'ws://');
+            }
+
             return { endpoint: rpc, wsEndpoint: ws };
         }
 
