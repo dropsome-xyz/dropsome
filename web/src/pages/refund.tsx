@@ -1,6 +1,6 @@
 import type { NextPage } from "next";
 import Head from "next/head";
-import { RefundView } from "views/refund";
+import { RefundView } from "../views/refund/index";
 
 const Refund: NextPage = (props) => {
   return (

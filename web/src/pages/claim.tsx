@@ -1,6 +1,6 @@
 import type { NextPage } from "next";
 import Head from "next/head";
-import { ClaimView } from "views/claim";
+import { ClaimView } from "../views/claim/index";
 
 const Claim: NextPage = (props) => {
   return (

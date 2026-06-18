@@ -10,7 +10,7 @@ import { AppState } from "../types/appState";
 
 import { Dropsome } from "../idl/dropsome"
 import { PublicKey } from "@solana/web3.js";
-import { ResponseData } from "pages/api/drop/receiver";
+import { ResponseData } from "../pages/api/drop/receiver";
 
 const FALLBACK_MIN_DROP_AMOUNT_LAMPORTS = 1000000;
 

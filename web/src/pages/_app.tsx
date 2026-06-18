@@ -6,7 +6,7 @@ import { AppBar } from '../components/AppBar';
 import { ContentContainer } from '../components/ContentContainer';
 import { Footer } from '../components/Footer';
 import Notifications from '../components/Notification';
-import { DrawerProvider } from 'components/DrawerProvider';
+import { DrawerProvider } from '../components/DrawerProvider';
 require('@solana/wallet-adapter-react-ui/styles.css');
 require('../styles/globals.css');
 

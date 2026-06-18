@@ -8,7 +8,7 @@ import { IDL_OBJECT } from "../utils/constants";
 
 import { Dropsome } from "../idl/dropsome";
 import { Commitment, LAMPORTS_PER_SOL, Transaction } from "@solana/web3.js";
-import { Record } from "types/record";
+import { Record } from "../types/record";
 
 const COMMITMENT_LEVEL: Commitment = "processed";
 const RPC_RATE_LIMIT_DELAY_MS = 120;

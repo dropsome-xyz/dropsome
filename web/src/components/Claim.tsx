@@ -6,7 +6,7 @@ import { ErrorHandler, ErrorCodes, getUserFriendlyMessage, isAppError } from "..
 import { IDL_OBJECT, getApiToken } from "../utils/constants";
 
 import { Dropsome } from "../idl/dropsome"
-import { Record } from "types/record";
+import { Record } from "../types/record";
 import Link from "next/link";
 import { SignActionLoader } from "./SignActionLoader";
 import { ReceiverDisclaimerDialog } from "./ReceiverDisclaimerDialog";
