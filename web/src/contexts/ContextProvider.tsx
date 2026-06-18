@@ -28,7 +28,7 @@ const WalletContextProvider: FC<{ children: ReactNode }> = ({ children }) => {
                 const port = url.port === '8899' ? '8900' : url.port;
                 const host = url.hostname;
                 const portPart = port ? `:${port}` : '';
-                ws = `${wsProtocol}//${host}${portPart}${url.pathname}`;
+                ws = `${wsProtocol}//${host}${portPart}${url.pathname}${url.search}`;
             } catch {
                 ws = rpc.replace(/^https:\/\//, 'wss://').replace(/^http:\/\//, 'ws://');
             }
