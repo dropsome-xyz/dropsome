@@ -1,17 +1,12 @@
 import type { NextApiRequest, NextApiResponse } from "next"
-import { checkClient, disableCaching } from "utils/apiHandlerHelpers";
-import { decryptMnemonic } from "utils/encryption";
-import { checkRateLimit, passphraseLimiter } from "utils/rateLimiter";
+import { checkClient, disableCaching } from "../../../utils/apiHandlerHelpers";
+import { decryptMnemonic } from "../../../utils/encryption";
 
 export default async function handler(
     req: NextApiRequest,
     res: NextApiResponse
 ) {
     disableCaching(res);
-
-    if (!checkRateLimit(req, res, passphraseLimiter)) {
-        return;
-    }
 
     checkClient(req, res);
 

@@ -1,9 +1,8 @@
 import { PublicKey } from "@solana/web3.js";
-import { createReceiverWallet } from "utils/wallet";
+import { createReceiverWallet } from "../../../utils/wallet";
 import type { NextApiRequest, NextApiResponse } from "next"
-import { encryptMnemonic } from "utils/encryption";
-import { checkClient, disableCaching } from "utils/apiHandlerHelpers";
-import { checkRateLimit, walletGenerationLimiter } from "utils/rateLimiter";
+import { encryptMnemonic } from "../../../utils/encryption";
+import { checkClient, disableCaching } from "../../../utils/apiHandlerHelpers";
 
 export type ResponseData = {
     address: PublicKey,
@@ -15,10 +14,6 @@ export default async function handler(
     res: NextApiResponse
 ) {
     disableCaching(res);
-
-    if (!checkRateLimit(req, res, walletGenerationLimiter)) {
-        return;
-    }
 
     checkClient(req, res);
 
