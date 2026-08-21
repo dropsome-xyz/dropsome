@@ -16,7 +16,6 @@ pub fn claim(ctx: Context<Claim>) -> Result<()> {
 
     let bump = ctx.bumps.vault;
 
-    msg!("Transfer funds to the receiver");
     let vault_seeds: &[&[&[u8]]] = &[&[
         b"vault",
         sender_address.as_ref(),
@@ -24,7 +23,6 @@ pub fn claim(ctx: Context<Claim>) -> Result<()> {
         &[bump],
     ]];
 
-    msg!("Transfer drop to receiver");
     let transfer_to_receiver = transfer(&vault.key(), &receiver.key(), record.amount);
 
     let account_infos = [
@@ -35,7 +33,6 @@ pub fn claim(ctx: Context<Claim>) -> Result<()> {
 
     invoke_signed(&transfer_to_receiver, &account_infos, vault_seeds)?;
 
-    msg!("Refund vault account rent to sender");
     let transfer_to_sender = transfer(&vault.key(), &sender.key(), vault.lamports());
 
     let refund_account_infos = [

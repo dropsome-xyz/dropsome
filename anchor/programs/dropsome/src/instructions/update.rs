@@ -10,32 +10,16 @@ pub fn update_state(ctx: Context<UpdateState>, parameters: AppStateParameters) -
         anchor_lang::prelude::ErrorCode::AccountNotInitialized
     );
     require!(
-        app_state.authority == ctx.accounts.authority.key(),
-        anchor_lang::prelude::ErrorCode::ConstraintHasOne
-    );
-    require!(
         parameters.fee_basis_points <= 10_000,
         crate::errors::DropSomeError::FeeBasisPointsTooHigh
     );
 
-    if app_state.authority != parameters.authority {
-        app_state.authority = parameters.authority;
-    }
-    if app_state.is_active != parameters.is_active {
-        app_state.is_active = parameters.is_active;
-    }
-    if app_state.network_fee_reserve != parameters.network_fee_reserve {
-        app_state.network_fee_reserve = parameters.network_fee_reserve;
-    }
-    if app_state.treasury != parameters.treasury {
-        app_state.treasury = parameters.treasury;
-    }
-    if app_state.fee_basis_points != parameters.fee_basis_points {
-        app_state.fee_basis_points = parameters.fee_basis_points;
-    }
-    if app_state.min_drop_amount != parameters.min_drop_amount {
-        app_state.min_drop_amount = parameters.min_drop_amount;
-    }
+    app_state.authority = parameters.authority;
+    app_state.is_active = parameters.is_active;
+    app_state.network_fee_reserve = parameters.network_fee_reserve;
+    app_state.treasury = parameters.treasury;
+    app_state.fee_basis_points = parameters.fee_basis_points;
+    app_state.min_drop_amount = parameters.min_drop_amount;
 
     msg!(
         "App state updated. app_state.is_active = {}",
@@ -47,10 +31,7 @@ pub fn update_state(ctx: Context<UpdateState>, parameters: AppStateParameters) -
 
 #[derive(Accounts)]
 pub struct UpdateState<'info> {
-    #[account(
-        mut,
-        constraint = authority.key() == program_data.upgrade_authority_address.unwrap_or_default()
-    )]
+    #[account(constraint = program_data.upgrade_authority_address == Some(authority.key()))]
     authority: Signer<'info>,
     #[account(
         mut,
@@ -65,5 +46,4 @@ pub struct UpdateState<'info> {
         seeds::program = bpf_loader_upgradeable::id(),
     )]
     program_data: Account<'info, ProgramData>,
-    system_program: Program<'info, System>,
 }

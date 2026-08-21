@@ -35,7 +35,7 @@ pub fn initialize(ctx: Context<Initialize>, parameters: AppStateParameters) -> R
 pub struct Initialize<'info> {
     #[account(
         mut,
-        constraint = authority.key() == program_data.upgrade_authority_address.unwrap_or_default()
+        constraint = program_data.upgrade_authority_address == Some(authority.key())
     )]
     authority: Signer<'info>,
     #[account(

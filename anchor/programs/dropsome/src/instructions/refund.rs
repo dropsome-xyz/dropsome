@@ -22,7 +22,6 @@ pub fn refund(ctx: Context<Refund>) -> Result<()> {
         &[bump],
     ]];
 
-    msg!("Transfer funds to the sender");
     let transfer_to_sender = transfer(&vault.key(), &sender.key(), vault.lamports());
 
     let account_infos = [
@@ -45,7 +44,6 @@ pub struct Refund<'info> {
         mut,
         seeds = [b"vault", sender.key().as_ref(), record.receiver.key().as_ref()],
         bump,
-        constraint = vault.key() == record.vault,
         owner = system_program.key(),
     )]
     vault: AccountInfo<'info>,

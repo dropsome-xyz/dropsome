@@ -1,6 +1,6 @@
 [package]
 name = "dropsome"
-version = "0.7.0"
+version = "0.8.0"
 description = "Dropsome is a DeFi app for sharing funds with newcomers"
 edition = "2021"
 authors = ["Dropsome <dev@dropsome.xyz>"]

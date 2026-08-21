@@ -449,12 +449,12 @@ describe("dropsome", () => {
 
         expect.fail();
       } catch (err) {
-        const receiverBalanceNotEmptyError = program.idl.errors.find(
-          (e: { name: string }) => e.name === "receiverBalanceNotEmpty"
+        const accountBalanceNotEmptyError = program.idl.errors.find(
+          (e: { name: string }) => e.name === "accountBalanceNotEmpty"
         );
-        expect(receiverBalanceNotEmptyError, 'Custom error not found in IDL').to.exist;
-        expect(err.error.errorCode.number).to.equal(receiverBalanceNotEmptyError.code);
-        expect(err.error.errorMessage).to.equal(receiverBalanceNotEmptyError.msg);
+        expect(accountBalanceNotEmptyError, 'Custom error not found in IDL').to.exist;
+        expect(err.error.errorCode.number).to.equal(accountBalanceNotEmptyError.code);
+        expect(err.error.errorMessage).to.equal(accountBalanceNotEmptyError.msg);
       }
     });
   });

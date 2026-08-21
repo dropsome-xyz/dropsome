@@ -8,7 +8,7 @@ export type Dropsome = {
   "address": "DSdHwC1vGPL4KzNAhgxMYggZnBBaY8upKx6uo655kVYZ",
   "metadata": {
     "name": "dropsome",
-    "version": "0.7.0",
+    "version": "0.8.0",
     "spec": "0.1.0",
     "description": "Dropsome is a DeFi app for sharing funds with newcomers"
   },
