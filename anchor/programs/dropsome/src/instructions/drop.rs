@@ -101,7 +101,7 @@ pub struct Drop<'info> {
         owner = system_program.key(),
         constraint = receiver.get_lamports() == 0 @ DropSomeError::AccountBalanceNotEmpty,
     )]
-    receiver: AccountInfo<'info>,
+    receiver: UncheckedAccount<'info>,
     /// CHECK: Vault PDA for storing funds, owned by system program
     #[account(
         mut,
@@ -110,7 +110,7 @@ pub struct Drop<'info> {
         owner = system_program.key(),
         constraint = vault.get_lamports() == 0 @ DropSomeError::AccountBalanceNotEmpty,
     )]
-    vault: AccountInfo<'info>,
+    vault: UncheckedAccount<'info>,
     #[account(
         init,
         space = 8 + Record::LEN,
@@ -128,6 +128,6 @@ pub struct Drop<'info> {
     app_state: Account<'info, AppState>,
     /// CHECK: Treasury account must match app state treasury
     #[account(mut, owner = system_program.key())]
-    treasury: AccountInfo<'info>,
+    treasury: UncheckedAccount<'info>,
     system_program: Program<'info, System>,
 }

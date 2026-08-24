@@ -1,5 +1,5 @@
-import * as anchor from "@coral-xyz/anchor";
-import { BN, Program } from "@coral-xyz/anchor";
+import * as anchor from "@anchor-lang/core";
+import { BN, Program } from "@anchor-lang/core";
 import { Dropsome } from "../target/types/dropsome";
 import * as web3 from "@solana/web3.js";
 import 'dotenv/config';
@@ -66,5 +66,4 @@ async function main() {
 }
 
 main();
-
 

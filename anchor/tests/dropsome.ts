@@ -1,5 +1,5 @@
-import * as anchor from "@coral-xyz/anchor";
-import { BN, Program } from "@coral-xyz/anchor";
+import * as anchor from "@anchor-lang/core";
+import { BN, Program } from "@anchor-lang/core";
 import { Dropsome } from "../target/types/dropsome";
 import * as web3 from "@solana/web3.js";
 import { expect } from "chai";
@@ -348,8 +348,8 @@ describe("dropsome", () => {
         .accounts({
           sender: sender.publicKey,
           receiver: receiver.publicKey,
-          treasury: treasury,
         })
+        .accountsPartial({ treasury })
         .signers([sender])
         .rpc({ commitment: "confirmed" });
 
@@ -419,8 +419,8 @@ describe("dropsome", () => {
           .accounts({
             sender: sender.publicKey,
             receiver: receiver.publicKey,
-            treasury: treasury,
           })
+          .accountsPartial({ treasury })
           .signers([sender])
           .rpc({ commitment: "confirmed" });
       } catch (err) {
@@ -442,8 +442,8 @@ describe("dropsome", () => {
           .accounts({
             sender: sender.publicKey,
             receiver: unexpectedReceiver.publicKey,
-            treasury: treasury,
           })
+          .accountsPartial({ treasury })
           .signers([sender])
           .rpc({ commitment: "confirmed" });
 
@@ -484,8 +484,8 @@ describe("dropsome", () => {
         .accounts({
           sender: sender.publicKey,
           receiver: receiver.publicKey,
-          treasury: treasury,
         })
+        .accountsPartial({ treasury })
         .signers([sender])
         .rpc({ commitment: "confirmed" });
 
@@ -537,8 +537,8 @@ describe("dropsome", () => {
         .accounts({
           sender: sender.publicKey,
           receiver: receiver.publicKey,
-          treasury: treasury,
         })
+        .accountsPartial({ treasury })
         .signers([sender])
         .rpc({ commitment: "confirmed" });
 

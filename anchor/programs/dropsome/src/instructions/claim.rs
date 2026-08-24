@@ -52,7 +52,7 @@ pub struct Claim<'info> {
     receiver: Signer<'info>,
     /// CHECK: Sender is the account that sent the funds to the vault
     #[account(mut)]
-    sender: AccountInfo<'info>,
+    sender: UncheckedAccount<'info>,
     /// CHECK: Vault PDA for storing funds, owned by system program
     #[account(
         mut,
@@ -60,7 +60,7 @@ pub struct Claim<'info> {
         bump,
         owner = system_program.key(),
     )]
-    vault: AccountInfo<'info>,
+    vault: UncheckedAccount<'info>,
     #[account(
         mut,
         seeds = [b"record", record.sender.key().as_ref(), receiver.key().as_ref()],
