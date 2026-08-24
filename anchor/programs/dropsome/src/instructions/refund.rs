@@ -46,7 +46,7 @@ pub struct Refund<'info> {
         bump,
         owner = system_program.key(),
     )]
-    vault: AccountInfo<'info>,
+    vault: UncheckedAccount<'info>,
     #[account(
         mut,
         seeds = [b"record", sender.key().as_ref(), record.receiver.key().as_ref()],

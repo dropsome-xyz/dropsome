@@ -1,7 +1,7 @@
 import { useConnection, useWallet } from "@solana/wallet-adapter-react";
 import { FC, useCallback, useState, useEffect, useRef, useMemo } from "react";
 import { notify } from "../utils/notifications";
-import { Program, AnchorProvider, web3, BN, setProvider, utils } from "@coral-xyz/anchor";
+import { Program, AnchorProvider, web3, BN, setProvider, utils } from "@anchor-lang/core";
 import { SignActionLoader } from "./SignActionLoader";
 import { SenderDisclaimerDialog } from "./SenderDisclaimerDialog";
 import { ErrorHandler, ErrorCodes, getUserFriendlyMessage, isAppError } from "../utils/errorHandler";

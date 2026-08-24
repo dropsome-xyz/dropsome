@@ -8,7 +8,7 @@ export type Dropsome = {
   "address": "DSdHwC1vGPL4KzNAhgxMYggZnBBaY8upKx6uo655kVYZ",
   "metadata": {
     "name": "dropsome",
-    "version": "0.8.0",
+    "version": "1.0.0",
     "spec": "0.1.0",
     "description": "Dropsome is a DeFi app for sharing funds with newcomers"
   },
@@ -460,7 +460,6 @@ export type Dropsome = {
       "accounts": [
         {
           "name": "authority",
-          "writable": true,
           "signer": true,
           "relations": [
             "appState"
@@ -568,10 +567,6 @@ export type Dropsome = {
               ]
             }
           }
-        },
-        {
-          "name": "systemProgram",
-          "address": "11111111111111111111111111111111"
         }
       ],
       "args": [
@@ -622,28 +617,28 @@ export type Dropsome = {
     },
     {
       "code": 6001,
-      "name": "receiverBalanceNotEmpty",
-      "msg": "The receiver account has a non-zero balance."
+      "name": "accountBalanceNotEmpty",
+      "msg": "The account must have zero lamports."
     },
     {
       "code": 6002,
-      "name": "unauthorizedClaim",
-      "msg": "Only the designated receiver can claim these funds."
-    },
-    {
-      "code": 6003,
       "name": "appStateAlreadyInitialized",
       "msg": "The app state is already initialized."
     },
     {
-      "code": 6004,
+      "code": 6003,
       "name": "feeBasisPointsTooHigh",
       "msg": "The fee basis points value is too high (max 10,000 = 100%)."
     },
     {
-      "code": 6005,
+      "code": 6004,
       "name": "appNotActive",
       "msg": "The app is not active."
+    },
+    {
+      "code": 6005,
+      "name": "feeCalculationOverflow",
+      "msg": "Fee or amount calculation overflowed."
     }
   ],
   "types": [

@@ -1,5 +1,5 @@
-import * as anchor from "@coral-xyz/anchor";
-import { BN, Program } from "@coral-xyz/anchor";
+import * as anchor from "@anchor-lang/core";
+import { BN, Program } from "@anchor-lang/core";
 import { Dropsome } from "../target/types/dropsome";
 import * as web3 from "@solana/web3.js";
 import { expect } from "chai";
@@ -7,6 +7,8 @@ import { expect } from "chai";
 const NETWORK_FEE_RESERVE_LAMPORTS: number = 1_000_000;
 const FEE_BASIS_POINTS: number = 100; // 1% in basis points
 const MIN_DROP_AMOUNT_LAMPORTS: number = 1_000_000;
+const EXPECTED_APP_STATE_ACCOUNT_SIZE = 92;
+const EXPECTED_RECORD_ACCOUNT_SIZE = 112;
 
 describe("dropsome", () => {
   const provider = anchor.AnchorProvider.env();
@@ -15,7 +17,7 @@ describe("dropsome", () => {
   const program = anchor.workspace.Dropsome as Program<Dropsome>;
 
   const amount = 1 * web3.LAMPORTS_PER_SOL;
-  const recordDataSize = 112;
+  const recordDataSize = EXPECTED_RECORD_ACCOUNT_SIZE;
 
   async function setupAccounts() {
     const sender = web3.Keypair.generate();
@@ -71,6 +73,8 @@ describe("dropsome", () => {
         .rpc({ commitment: "confirmed" });
 
       const appState = await program.account.appState.fetch(appStatePda);
+      const appStateInfo = await provider.connection.getAccountInfo(appStatePda, "confirmed");
+      expect(appStateInfo?.data.length).to.equal(EXPECTED_APP_STATE_ACCOUNT_SIZE);
       expect(appState.isInitialized).to.be.true;
       expect(appState.authority.toBase58()).to.equal(authority.publicKey.toBase58());
       expect(appState.isActive).to.be.true;
@@ -281,6 +285,9 @@ describe("dropsome", () => {
 
       console.log("Transaction signature", tx);
 
+      const recordInfo = await provider.connection.getAccountInfo(record, "confirmed");
+      expect(recordInfo?.data.length).to.equal(EXPECTED_RECORD_ACCOUNT_SIZE);
+
       const senderBalance = await provider.connection.getBalance(sender.publicKey, "confirmed");
       const vaultRentDeposit = await provider.connection.getMinimumBalanceForRentExemption(0);
       const vaultBalance = await provider.connection.getBalance(vault, "confirmed");
@@ -348,8 +355,8 @@ describe("dropsome", () => {
         .accounts({
           sender: sender.publicKey,
           receiver: receiver.publicKey,
-          treasury: treasury,
         })
+        .accountsPartial({ treasury })
         .signers([sender])
         .rpc({ commitment: "confirmed" });
 
@@ -419,8 +426,8 @@ describe("dropsome", () => {
           .accounts({
             sender: sender.publicKey,
             receiver: receiver.publicKey,
-            treasury: treasury,
           })
+          .accountsPartial({ treasury })
           .signers([sender])
           .rpc({ commitment: "confirmed" });
       } catch (err) {
@@ -442,8 +449,8 @@ describe("dropsome", () => {
           .accounts({
             sender: sender.publicKey,
             receiver: unexpectedReceiver.publicKey,
-            treasury: treasury,
           })
+          .accountsPartial({ treasury })
           .signers([sender])
           .rpc({ commitment: "confirmed" });
 
@@ -484,8 +491,8 @@ describe("dropsome", () => {
         .accounts({
           sender: sender.publicKey,
           receiver: receiver.publicKey,
-          treasury: treasury,
         })
+        .accountsPartial({ treasury })
         .signers([sender])
         .rpc({ commitment: "confirmed" });
 
@@ -537,8 +544,8 @@ describe("dropsome", () => {
         .accounts({
           sender: sender.publicKey,
           receiver: receiver.publicKey,
-          treasury: treasury,
         })
+        .accountsPartial({ treasury })
         .signers([sender])
         .rpc({ commitment: "confirmed" });
 

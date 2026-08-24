@@ -40,7 +40,7 @@ pub struct Initialize<'info> {
     authority: Signer<'info>,
     #[account(
         init,
-        space = 8 + AppState::LEN,
+        space = 8 + AppState::INIT_SPACE,
         seeds = [b"app_state"],
         bump,
         payer = authority,
