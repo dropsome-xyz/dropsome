@@ -74,8 +74,8 @@ export const Claim: FC = () => {
             } catch (error) {
                 console.error('Error while getting passphrase:', error);
 
-                let errorMessage = "Failed to load secret phrase";
-                let errorDescription = "An unexpected error occurred";
+                let errorMessage = "We couldn't load the recovery phrase";
+                let errorDescription = "Something went wrong. Please try again.";
 
                 if (isAppError(error)) {
                     errorMessage = getUserFriendlyMessage(error);
@@ -120,11 +120,11 @@ export const Claim: FC = () => {
                 })
                 .rpc();
 
-            notify({ type: "success", message: 'Successfully claimed some drop!', txid: signature });
+            notify({ type: "success", message: 'Drop claimed successfully', txid: signature });
             console.log("Successfully claimed some drop: " + signature);
         } catch (error) {
             let errorMessage = "Error while claiming drop!";
-            let errorDescription = "An unexpected error occurred";
+            let errorDescription = "Something went wrong. Please try again.";
 
             if (isAppError(error)) {
                 errorMessage = getUserFriendlyMessage(error);
@@ -176,7 +176,7 @@ export const Claim: FC = () => {
                     console.log("No drop record found for this wallet");
                     notify({
                         type: "error",
-                        message: "No drop found for this wallet. Make sure you're using the correct wallet, or you may have already claimed your drop."
+                        message: "We couldn't find an active drop for this wallet. Check that you imported the phrase from this link, or the drop may already have been claimed."
                     });
                 }
             } catch (error) {
@@ -211,7 +211,7 @@ export const Claim: FC = () => {
                         <li className="ml-6">
                             <p className="font-semibold">Get a Wallet</p>
                             <p className="text-slate-500 mt-2 text-base">
-                                Download a wallet app to manage your SOL:
+                                Install a wallet app to manage your SOL:
                             </p>
                             <ul className="list-disc list-outside ml-6 mt-2 text-slate-400 space-y-1 text-base">
                                 <li>
@@ -232,21 +232,21 @@ export const Claim: FC = () => {
                             </ul>
                         </li>
                         <li className="ml-6">
-                            <span className="font-semibold">Import the Secret Phrase</span>
+                            <span className="font-semibold">Import the recovery phrase</span>
                             <p className="text-slate-500 mt-2 text-base">
-                                Open the wallet app, select &quot;Import Wallet,&quot; and enter the secret phrase shown below.
+                                Open the wallet app, choose &quot;Import wallet,&quot; and enter the recovery phrase shown below.
                             </p>
                         </li>
                         <li className="ml-6">
                             <span className="font-semibold">Complete the Claim</span>
                             <p className="text-slate-500 mt-2 text-base">
-                                After setting up the wallet, come back to this link, connect your wallet, and confirm the transfer. Your SOL will land in your new wallet!
+                                Return to this link, connect the wallet created from this phrase, and approve the claim. A different wallet cannot claim this drop.
                             </p>
                         </li>
                     </ol>
                 </h4>
                 {phrase && (<div>
-                    <h2 className="text-2xl font-bold mb-4 text-nova">Your Secret Phrase</h2>
+                    <h2 className="text-2xl font-bold mb-4 text-nova">Your recovery phrase for this drop</h2>
                     <div className="relative group max-w-xs mx-auto">
                         <div className="absolute -inset-0.5 bg-gradient-to-r from-vortex to-vortex rounded-lg blur opacity-50 animate-tilt"></div>
                         <div className="relative max-w-xs mx-auto textarea textarea-primary textarea-lg bg-primary border-2 border-[#5252529f] p-6 px-10 my-2 text-start">

@@ -153,7 +153,7 @@ export const Drop: FC = () => {
             setSignature("");
 
             let errorMessage = "Error while dropping funds!";
-            let errorDescription = "An unexpected error occurred";
+            let errorDescription = "Something went wrong. Please try again.";
 
             if (isAppError(error)) {
                 errorMessage = getUserFriendlyMessage(error);
@@ -209,7 +209,7 @@ export const Drop: FC = () => {
                 {/* Header */}
                 <h4 className="md:w-full text-2x1 md:text-4xl text-center text-slate-300 my-2">
                     <p>Kickstart someone&apos;s crypto journey!</p>
-                    <p className='text-slate-500 text-2x1 leading-relaxed'>Enter the amount of SOL to drop. The app will create a magic link for the receiver, even if they don&apos;t have a wallet. Simple as that!</p>
+                    <p className='text-slate-500 text-2x1 leading-relaxed'>Enter the amount of SOL to send. The recipient can claim the drop later, even if they do not have a wallet yet. Dropsome creates a claim link they can use when they are ready.</p>
                 </h4>
                 <h2 className="text-2xl font-bold text-nova">Enter Amount to Drop</h2>
 
@@ -286,8 +286,13 @@ export const Drop: FC = () => {
                         }
                     >
                         <div className="hidden group-disabled:block text-white/35">
-                            {isLoading ? "Processing..." :
-                                !connectedWallet.connected ? "Wallet not connected" : "Drop"}
+                            {isLoading
+                                ? "Creating your drop..."
+                                : !connectedWallet.connected
+                                ? "Connect wallet"
+                                : !amount
+                                ? "Enter an amount"
+                                : "Amount is below the minimum"}
                         </div>
                         <span className="block group-disabled:hidden" >
                             Drop
@@ -298,7 +303,7 @@ export const Drop: FC = () => {
 
                 {/* Claim Link */}
                 {(signature && connectedWallet.connected) && (<div>
-                    <h2 className="text-2xl font-bold mb-4 text-nova">Your Claim Link</h2>
+                    <h2 className="text-2xl font-bold mb-4 text-nova">Share this claim link</h2>
                     <div className="relative group">
                         <div className="absolute -inset-0.5 bg-gradient-to-r from-vortex to-vortex rounded-lg blur opacity-40 animate-tilt" />
                         <div className="relative max-w-xs max-sm:max-w-[280px] mx-auto textarea textarea-primary textarea-lg bg-primary border-2 border-[#5252529f] p-8 px-10 my-2 text-start">
@@ -311,7 +316,7 @@ export const Drop: FC = () => {
                             <button
                                 onClick={() => {
                                     navigator.clipboard.writeText(link);
-                                    notify({ type: "success", message: "Link copied to clipboard!" });
+                                    notify({ type: "success", message: "Link copied to clipboard" });
                                 }}
                                 className="absolute top-2 right-2 p-0 bg-transparent border-none cursor-pointer">
                                 <img src="/content_copy.svg" alt="Copy the claim link" width={20} height={20} />

@@ -6,10 +6,10 @@ const Drop: NextPage = (props) => {
   return (
     <div>
       <Head>
-        <title>Dropsome</title>
+        <title>Send SOL to someone without a wallet</title>
         <meta
           name="description"
-          content="Drop Some Funds"
+          content="Send SOL to someone without a wallet. Dropsome creates a secure claim link so they can set up a wallet and claim it when ready."
         />
         <meta name="robots" content="noindex, nofollow" />
       </Head>

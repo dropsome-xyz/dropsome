@@ -222,7 +222,7 @@ export const Refund: FC = () => {
       }
     } catch (error) {
       let errorMessage = "Error while building or signing transactions!";
-      let errorDescription = "An unexpected error occurred";
+      let errorDescription = "Something went wrong. Please try again.";
 
       if (isAppError(error)) {
         errorMessage = getUserFriendlyMessage(error);
@@ -269,7 +269,7 @@ export const Refund: FC = () => {
           (activeDrops.length > 0 ? (
             <div>
               <h2 className="text-2xl font-bold mb-4 text-nova">
-                Unclaimed Drops
+                Your unclaimed drops
               </h2>
               <div className="flex flex-col items-center gap-4">
                 {activeDrops.map((drop) => {
@@ -317,7 +317,7 @@ export const Refund: FC = () => {
             </div>
           ) : (
             <div className="text-slate-500 text-2xl leading-relaxed">
-              No unclamed drops
+              No unclaimed drops
             </div>
           ))}
       </div>
