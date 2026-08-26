@@ -6,10 +6,10 @@ const Refund: NextPage = (props) => {
   return (
     <div>
       <Head>
-        <title>Dropsome</title>
+        <title>Refund your drop</title>
         <meta
           name="description"
-          content="Refund Your Drop"
+          content="Recover an unclaimed drop"
         />
         <meta name="robots" content="index, follow" />
       </Head>

@@ -38,7 +38,7 @@ export class ErrorHandler {
 
     static handleApiError(error: any, context?: string): AppError {
         let code = 'UNKNOWN_ERROR';
-        let message = 'An unexpected error occurred';
+        let message = 'Something went wrong. Please try again.';
         let details = error?.message || 'No additional details available';
 
         if (error?.response?.status) {
@@ -138,14 +138,14 @@ export function isRetryableError(error: AppError): boolean {
 
 export function getUserFriendlyMessage(error: AppError): string {
     const friendlyMessages: Record<string, string> = {
-        [ErrorCodes.USER_REJECTED]: 'Transaction was cancelled. Please try again.',
-        [ErrorCodes.INSUFFICIENT_FUNDS]: 'You don\'t have enough SOL to complete this transaction.',
-        [ErrorCodes.ACCOUNT_NOT_FOUND]: 'The account you\'re trying to use doesn\'t exist.',
+        [ErrorCodes.USER_REJECTED]: 'Transaction cancelled — nothing was sent.',
+        [ErrorCodes.INSUFFICIENT_FUNDS]: 'Your wallet needs more SOL for the drop and network fee.',
+        [ErrorCodes.ACCOUNT_NOT_FOUND]: 'We couldn\'t find that wallet account. Check that the correct wallet is connected.',
         [ErrorCodes.WALLET_NOT_CONNECTED]: 'Please connect your wallet to continue.',
-        [ErrorCodes.HTTP_429]: 'Too many requests. Please wait a moment and try again.',
-        [ErrorCodes.VALIDATION_ERROR]: 'Please check your input and try again.',
+        [ErrorCodes.HTTP_429]: 'Too many requests right now. Wait a moment, then try again.',
+        [ErrorCodes.VALIDATION_ERROR]: 'Enter a valid amount and try again.',
         [ErrorCodes.ENCRYPTION_ERROR]: 'Failed to process secure data. Please try again.',
-        [ErrorCodes.PROGRAM_NOT_INITIALIZED]: 'Program instance is not initialized. Please reconnect your wallet.',
+        [ErrorCodes.PROGRAM_NOT_INITIALIZED]: 'We couldn\'t connect to Dropsome on this network. Check your network or RPC settings and try again.',
     };
     
     return friendlyMessages[error.code] || error.message;
@@ -184,5 +184,5 @@ export function getErrorMessage(error: unknown): string {
     if (typeof error === 'string') {
         return error;
     }
-    return 'An unexpected error occurred';
+    return 'Something went wrong. Please try again.';
 }

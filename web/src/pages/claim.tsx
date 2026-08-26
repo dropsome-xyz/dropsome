@@ -6,10 +6,10 @@ const Claim: NextPage = (props) => {
   return (
     <div>
       <Head>
-        <title>Dropsome</title>
+        <title>Claim your drop</title>
         <meta
           name="description"
-          content="Claim Your Drop"
+          content="Claim your SOL drop. Follow the steps to set up a wallet and receive the SOL sent to you through Dropsome."
         />
         <meta name="robots" content="noindex, nofollow" />
       </Head>
