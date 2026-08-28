@@ -1,0 +1,45 @@
+{
+  "nav": { "drop": "Drop", "refund": "Remboursement" },
+  "drawer": { "menu": "Menu" },
+  "settings": { "autoconnect": "Connexion automatique" },
+  "network": { "label": "Réseau", "customRpcUrl": "URL RPC personnalisée", "custom": "Personnalisé" },
+  "footer": {
+    "documentation": "Documentation",
+    "privacyPolicy": "Politique de confidentialité",
+    "termsOfService": "Conditions d'utilisation"
+  },
+  "language": { "label": "Langue" },
+  "notification": { "close": "Fermer" },
+  "loader": { "waitingForApproval": "En attente de l'approbation du portefeuille..." },
+  "security": {
+    "title": "Conseils de sécurité",
+    "readMore": "En savoir plus sur la sécurité",
+    "gotIt": "J'ai compris",
+    "sender": {
+      "onboardingTitle": "Idéal pour débuter.",
+      "onboardingBody": "Dropsome est conçu pour envoyer de petites sommes afin d'aider vos amis à découvrir les cryptomonnaies.",
+      "shareTitle": "Partagez les liens en toute sécurité.",
+      "shareBody": "Envoyez le lien de récupération uniquement à la personne concernée, de préférence via un canal privé avec chiffrement de bout en bout.",
+      "cleanupTitle": "Supprimez le lien après utilisation.",
+      "cleanupBody": "Une fois le drop récupéré ou remboursé, supprimez définitivement le lien des conversations et de vos notes.",
+      "refundTitle": "Option de remboursement disponible.",
+      "refundBody": "Vous pouvez toujours récupérer les fonds non réclamés grâce à la fonction de remboursement si nécessaire."
+    },
+    "receiver": {
+      "welcomeTitle": "Bienvenue dans le monde des cryptomonnaies !",
+      "welcomeBody": "Ce portefeuille est votre point d'entrée. Utilisez-le pour recevoir le drop et commencer votre parcours.",
+      "ownWalletTitle": "Configurez votre propre portefeuille.",
+      "ownWalletBody": "Après avoir récupéré le drop, créez un nouveau portefeuille Solana dont vous êtes le seul à connaître la phrase de récupération, puis transférez-y vos SOL.",
+      "temporaryTitle": "Considérez ce portefeuille comme temporaire.",
+      "temporaryBody": "Comme ce portefeuille a été créé pour le drop, il est recommandé de l'utiliser temporairement et de transférer les fonds vers votre portefeuille personnel.",
+      "officialAppsTitle": "Utilisez les applications officielles.",
+      "officialAppsBody": "Installez les applications de portefeuille depuis les sites officiels ou les boutiques d'applications. Vérifiez toujours qu'il s'agit d'un logiciel légitime."
+    }
+  },
+  "alt": { "securityDisclaimer": "Avertissement de sécurité" },
+  "pages": {
+    "index": { "title": "Envoyer des SOL à quelqu'un qui n'a pas de portefeuille" },
+    "claim": { "title": "Récupérer votre drop" },
+    "refund": { "title": "Rembourser votre drop" }
+  }
+}

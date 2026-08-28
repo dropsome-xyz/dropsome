@@ -1,0 +1,20 @@
+{
+  "userRejected": "Giao dịch đã bị hủy — không có gì được gửi.",
+  "insufficientFunds": "Ví của bạn cần thêm SOL để thực hiện Drop và trả phí mạng.",
+  "accountNotFound": "Không tìm thấy tài khoản ví. Hãy kiểm tra xem ví chính xác đã được kết nối chưa.",
+  "walletNotConnected": "Vui lòng kết nối ví để tiếp tục.",
+  "tooManyRequests": "Có quá nhiều yêu cầu vào lúc này. Hãy chờ một chút rồi thử lại.",
+  "validation": "Nhập số lượng hợp lệ rồi thử lại.",
+  "encryption": "Không thể xử lý dữ liệu bảo mật. Vui lòng thử lại.",
+  "programNotInitialized": "Không thể kết nối với Dropsome trên mạng này. Hãy kiểm tra cài đặt mạng hoặc RPC rồi thử lại.",
+  "invalidAccount": "Tài khoản không hợp lệ.",
+  "walletConnectionFailed": "Không thể kết nối ví. Vui lòng thử lại.",
+  "http400": "Yêu cầu không hợp lệ. Vui lòng kiểm tra dữ liệu đã nhập.",
+  "http401": "Chưa được xác thực. Vui lòng kết nối lại ví.",
+  "http403": "Truy cập bị từ chối.",
+  "http404": "Không tìm thấy tài nguyên.",
+  "http500": "Lỗi máy chủ. Vui lòng thử lại sau.",
+  "solanaError": "Lỗi mạng Solana. Vui lòng thử lại.",
+  "networkError": "Lỗi mạng. Vui lòng kiểm tra kết nối.",
+  "unexpected": "Đã xảy ra lỗi. Vui lòng thử lại."
+}

@@ -1,0 +1,26 @@
+{
+  "heading": "领取你的 drop",
+  "subtitle": "只需几步即可获得你的 SOL！",
+  "getWalletTitle": "获取钱包",
+  "installInstruction": "安装钱包应用以管理你的 SOL：",
+  "walletPhantom": "Phantom 钱包",
+  "walletSolflare": "Solflare 钱包",
+  "walletBackpack": "Backpack 钱包",
+  "importPhraseTitle": "导入恢复短语",
+  "importPhraseBody": "打开钱包应用，选择“导入钱包”，然后输入下方显示的恢复短语。",
+  "completeTitle": "完成领取",
+  "completeBody": "返回此链接，连接使用该短语创建的钱包，然后确认领取。其他钱包无法领取此 Drop。",
+  "phraseHeading": "此 Drop 的恢复短语",
+  "noRecord": "未找到此钱包的活跃 Drop。请确认你已从此链接导入恢复短语，也可能是该 Drop 已被领取。",
+  "toast": {
+    "missingDataMessage": "缺少领取数据",
+    "loadFailed": "无法加载恢复短语",
+    "success": "Drop 领取成功",
+    "error": "领取 drop 时出错！",
+    "unexpected": "出错了，请重试。"
+  },
+  "phrase": {
+    "show": "显示短语",
+    "hide": "隐藏短语"
+  }
+}

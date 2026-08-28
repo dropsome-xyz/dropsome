@@ -1,0 +1,33 @@
+{
+  "heading": "Drop beberapa SOL",
+  "tagline": "Bantu seseorang memulai perjalanan kriptonya!",
+  "intro": "Masukkan jumlah SOL yang akan dikirim. Penerima dapat menerima drop nanti, bahkan jika mereka belum memiliki dompet. Dropsome membuat tautan penerimaan yang dapat mereka gunakan saat siap.",
+  "amountLabel": "Masukkan jumlah yang akan di-drop",
+  "appFeePerDrop": "Biaya aplikasi: ",
+  "feeCharged": "Biaya akan dikenakan: ",
+  "feeBelowThreshold": "< 0.0001 SOL",
+  "increaseAmount": "Tambah jumlah",
+  "decreaseAmount": "Kurangi jumlah",
+  "button": {
+    "submit": "Drop SOL",
+    "creating": "Membuat drop...",
+    "connectWallet": "Hubungkan dompet",
+    "enterAmount": "Masukkan jumlah",
+    "belowMinimum": "Jumlah di bawah minimum"
+  },
+  "link": {
+    "heading": "Bagikan tautan penerimaan ini",
+    "copy": "Salin tautan",
+    "copiedToast": "Tautan disalin ke papan klip",
+    "copyAlt": "Salin tautan penerimaan",
+    "hideAlt": "Sembunyikan tautan penerimaan",
+    "warningTitle": "Jangan sampai kehilangan tautan!",
+    "warningBody": "Dana sudah dikirim, dan tautan ini adalah tiket emas Anda! Pastikan Anda sudah menyalinnya sebelum menutup, atau penerima tidak akan dapat menerima drop. Jika terlewat, Anda harus mengembalikan drop dan memulai dari awal.",
+    "closeAnyway": "Tetap Tutup"
+  },
+  "toast": {
+    "success": "Berhasil mengirimkan dana!",
+    "error": "Terjadi kesalahan saat mengirimkan dana!",
+    "unexpected": "Terjadi kesalahan. Coba lagi."
+  }
+}

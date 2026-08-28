@@ -1,0 +1,19 @@
+{
+  "heading": "退款你的 Drop",
+  "subtitle": "找回未被领取的资金！",
+  "intro": "如果接收方尚未领取 Drop，你可以在此退款。从列表中选择未领取的 Drop，然后点击退款按钮找回 SOL。",
+  "listHeading": "你的未领取 Drop",
+  "empty": "没有未领取的 Drop",
+  "amountSol": "{{amount}} SOL",
+  "button": {
+    "refund": "退款",
+    "processing": "处理中...",
+    "connectWallet": "钱包未连接",
+    "selectOne": "请至少选择一个 Drop"
+  },
+  "toast": {
+    "success": "Drop 退款成功！",
+    "error": "构建或签名交易时出错！",
+    "unexpected": "出错了，请重试。"
+  }
+}

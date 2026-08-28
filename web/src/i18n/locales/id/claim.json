@@ -1,0 +1,26 @@
+{
+  "heading": "Terima Drop Anda",
+  "subtitle": "Hanya beberapa langkah mudah untuk mendapatkan SOL Anda!",
+  "getWalletTitle": "Dapatkan dompet",
+  "installInstruction": "Instal aplikasi dompet untuk mengelola SOL Anda:",
+  "walletPhantom": "Dompet Phantom",
+  "walletSolflare": "Dompet Solflare",
+  "walletBackpack": "Dompet Backpack",
+  "importPhraseTitle": "Masukkan frasa pemulihan",
+  "importPhraseBody": "Buka aplikasi dompet, pilih \"Impor dompet,\" dan masukkan frasa pemulihan yang ditampilkan di bawah.",
+  "completeTitle": "Selesaikan penerimaan",
+  "completeBody": "Kembali ke tautan ini, hubungkan dompet yang dibuat dari frasa ini, dan setujui penerimaan. Dompet lain tidak dapat menerima drop ini.",
+  "phraseHeading": "Frasa pemulihan untuk drop ini",
+  "noRecord": "Kami tidak menemukan drop aktif untuk dompet ini. Periksa apakah Anda memasukkan frasa dari tautan ini, atau drop mungkin sudah diterima.",
+  "toast": {
+    "missingDataMessage": "Data penerimaan tidak lengkap",
+    "loadFailed": "Gagal memuat frasa pemulihan",
+    "success": "Drop berhasil diterima",
+    "error": "Terjadi kesalahan saat menerima drop!",
+    "unexpected": "Terjadi kesalahan. Coba lagi."
+  },
+  "phrase": {
+    "show": "Tampilkan frasa",
+    "hide": "Sembunyikan frasa"
+  }
+}

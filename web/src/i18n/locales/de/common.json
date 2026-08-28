@@ -1,0 +1,70 @@
+{
+  "nav": {
+    "drop": "Drop",
+    "refund": "Rückholen"
+  },
+  "drawer": {
+    "menu": "Menü"
+  },
+  "settings": {
+    "autoconnect": "Automatisch verbinden"
+  },
+  "network": {
+    "label": "Netzwerk",
+    "customRpcUrl": "Benutzerdefinierte RPC-URL",
+    "custom": "Eigene RPC"
+  },
+  "footer": {
+    "documentation": "Dokumentation",
+    "privacyPolicy": "Datenschutzerklärung",
+    "termsOfService": "Nutzungsbedingungen"
+  },
+  "language": {
+    "label": "Sprache"
+  },
+  "notification": {
+    "close": "Schließen"
+  },
+  "loader": {
+    "waitingForApproval": "Warten auf Wallet-Bestätigung..."
+  },
+  "security": {
+    "title": "Sicherheits- und Schutzhinweise",
+    "readMore": "Mehr über Sicherheit erfahren",
+    "gotIt": "Verstanden",
+    "sender": {
+      "onboardingTitle": "Ideal für die ersten Schritte.",
+      "onboardingBody": "Dropsome ist für kleine Überweisungen gedacht und erleichtert Freunden den Einstieg in Krypto.",
+      "shareTitle": "Links sicher teilen.",
+      "shareBody": "Senden Sie den Abhollink nur an die dafür vorgesehene Person, möglichst über einen privaten, Ende-zu-Ende-verschlüsselten Kanal.",
+      "cleanupTitle": "Nach der Nutzung aufräumen.",
+      "cleanupBody": "Nachdem der Drop abgeholt oder zurückgeholt wurde, entfernen Sie den Link aus Chats und Notizen.",
+      "refundTitle": "Rückholen jederzeit möglich.",
+      "refundBody": "Nicht abgeholte Mittel können Sie bei Bedarf jederzeit über die Rückholfunktion zurückholen."
+    },
+    "receiver": {
+      "welcomeTitle": "Willkommen in der Krypto-Welt!",
+      "welcomeBody": "Dieses Wallet ist Ihr Einstieg. Verwenden Sie es, um den Drop zu erhalten und loszulegen.",
+      "ownWalletTitle": "Richten Sie Ihr eigenes Wallet ein.",
+      "ownWalletBody": "Erstellen Sie nach dem Abholen ein neues Solana-Wallet, dessen Wiederherstellungsphrase nur Sie kennen, und übertragen Sie Ihre SOL dorthin.",
+      "temporaryTitle": "Betrachten Sie dieses Wallet als vorübergehend.",
+      "temporaryBody": "Da dieses Wallet für den Drop erstellt wurde, sollten Sie es nur vorübergehend verwenden und die Mittel in Ihr persönliches Wallet übertragen.",
+      "officialAppsTitle": "Verwenden Sie offizielle Wallet-Apps.",
+      "officialAppsBody": "Installieren Sie Wallet-Apps nur von offiziellen Websites oder aus offiziellen App-Stores. Prüfen Sie immer, dass Sie legitime Software verwenden."
+    }
+  },
+  "alt": {
+    "securityDisclaimer": "Sicherheitshinweis"
+  },
+  "pages": {
+    "index": {
+      "title": "SOL an jemanden ohne Wallet senden"
+    },
+    "claim": {
+      "title": "Ihren Drop erhalten"
+    },
+    "refund": {
+      "title": "Ihren Drop zurückholen"
+    }
+  }
+}

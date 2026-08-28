@@ -1,0 +1,33 @@
+{
+  "heading": "SOL を Drop",
+  "tagline": "誰かの暗号資産デビューを後押ししよう！",
+  "intro": "送信する SOL の数量を入力してください。受け取り手は、ウォレットをまだ持っていなくても、後で Drop を受け取れます。Dropsome が受け取りリンクを作成するので、準備ができたら使用できます。",
+  "amountLabel": "Drop する数量を入力",
+  "appFeePerDrop": "アプリ手数料: ",
+  "feeCharged": "手数料が請求されます: ",
+  "feeBelowThreshold": "< 0.0001 SOL",
+  "increaseAmount": "数量を増やす",
+  "decreaseAmount": "数量を減らす",
+  "button": {
+    "submit": "SOL を Drop",
+    "creating": "Drop を作成中...",
+    "connectWallet": "ウォレットを接続",
+    "enterAmount": "数量を入力",
+    "belowMinimum": "最小額未満です"
+  },
+  "link": {
+    "heading": "この受け取りリンクを共有",
+    "copy": "リンクをコピー",
+    "copiedToast": "リンクをクリップボードにコピーしました",
+    "copyAlt": "受け取りリンクをコピー",
+    "hideAlt": "受け取りリンクを非表示",
+    "warningTitle": "リンクを紛失しないで！",
+    "warningBody": "資金はすでに送信済みで、このリンクが受け取りに必要です。閉じる前にコピーしたことを確認してください。コピーし忘れると、受け取り手が Drop を受け取れません。リンクを紛失した場合は、Drop を返金してやり直す必要があります。",
+    "closeAnyway": "このまま閉じる"
+  },
+  "toast": {
+    "success": "資金を送信しました！",
+    "error": "資金の送信でエラーが発生しました！",
+    "unexpected": "エラーが発生しました。もう一度お試しください。"
+  }
+}

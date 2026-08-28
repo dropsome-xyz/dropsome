@@ -1,0 +1,45 @@
+{
+  "nav": { "drop": "Drop", "refund": "Hoàn tiền" },
+  "drawer": { "menu": "Menu" },
+  "settings": { "autoconnect": "Tự động kết nối" },
+  "network": { "label": "Mạng", "customRpcUrl": "URL RPC tùy chỉnh", "custom": "RPC tùy chỉnh" },
+  "footer": {
+    "documentation": "Tài liệu",
+    "privacyPolicy": "Chính sách bảo mật",
+    "termsOfService": "Điều khoản dịch vụ"
+  },
+  "language": { "label": "Ngôn ngữ" },
+  "notification": { "close": "Đóng" },
+  "loader": { "waitingForApproval": "Đang chờ xác nhận từ ví..." },
+  "security": {
+    "title": "Mẹo bảo mật và an toàn",
+    "readMore": "Tìm hiểu thêm về bảo mật",
+    "gotIt": "Đã hiểu",
+    "sender": {
+      "onboardingTitle": "Lý tưởng cho người mới bắt đầu.",
+      "onboardingBody": "Dropsome được thiết kế cho các giao dịch nhỏ, giúp bạn bè bắt đầu sử dụng tiền mã hóa.",
+      "shareTitle": "Chia sẻ liên kết an toàn.",
+      "shareBody": "Chỉ gửi liên kết nhận cho đúng người, tốt nhất qua một kênh riêng tư có mã hóa đầu cuối.",
+      "cleanupTitle": "Dọn dẹp sau khi sử dụng.",
+      "cleanupBody": "Sau khi Drop được nhận hoặc hoàn tiền, hãy xóa vĩnh viễn liên kết khỏi các cuộc trò chuyện và ghi chú.",
+      "refundTitle": "Có tùy chọn hoàn tiền.",
+      "refundBody": "Bạn luôn có thể lấy lại số tiền chưa được nhận bằng tính năng hoàn tiền nếu cần."
+    },
+    "receiver": {
+      "welcomeTitle": "Chào mừng bạn đến với tiền mã hóa!",
+      "welcomeBody": "Ví này là điểm bắt đầu của bạn. Dùng ví để nhận Drop và bắt đầu hành trình của mình.",
+      "ownWalletTitle": "Tạo ví riêng của bạn.",
+      "ownWalletBody": "Sau khi nhận Drop, hãy tạo một ví Solana mới mà chỉ bạn biết cụm từ khôi phục, rồi chuyển SOL vào đó.",
+      "temporaryTitle": "Hãy coi đây là ví tạm thời.",
+      "temporaryBody": "Vì ví này được tạo cho Drop, bạn nên chỉ sử dụng tạm thời và chuyển tiền sang ví cá nhân của mình.",
+      "officialAppsTitle": "Sử dụng ứng dụng ví chính thức.",
+      "officialAppsBody": "Cài đặt ứng dụng ví từ trang web chính thức hoặc cửa hàng ứng dụng. Luôn kiểm tra để đảm bảo bạn đang sử dụng phần mềm chính thức."
+    }
+  },
+  "alt": { "securityDisclaimer": "Tuyên bố miễn trừ trách nhiệm về bảo mật" },
+  "pages": {
+    "index": { "title": "Gửi SOL cho người chưa có ví" },
+    "claim": { "title": "Nhận Drop của bạn" },
+    "refund": { "title": "Hoàn tiền Drop của bạn" }
+  }
+}

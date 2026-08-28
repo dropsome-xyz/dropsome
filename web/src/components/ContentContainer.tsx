@@ -1,11 +1,13 @@
 import Text from "./Text";
 import NavElement from "./nav-element";
 import { useDrawer } from "./DrawerProvider";
+import { useTranslation } from "react-i18next";
 interface Props {
   children: React.ReactNode;
 }
 
 export const ContentContainer: React.FC<Props> = ({ children }) => {
+  const { t } = useTranslation('common');
   const [isOpen, setIsOpen] = useDrawer();
   return (
     <div className="flex-1 drawer min-h-0">
@@ -31,14 +33,14 @@ export const ContentContainer: React.FC<Props> = ({ children }) => {
               variant="heading"
               className="font-extrabold tracking-tighter text-center text-nova mt-10"
             >
-              Menu
+              {t('drawer.menu')}
             </Text>
           </li>
           <li>
-            <NavElement label="Drop" href="/" navigationStarts={() => setIsOpen(false)} />
+            <NavElement label={t('nav.drop')} href="/" navigationStarts={() => setIsOpen(false)} />
           </li>
           <li>
-            <NavElement label="Refund" href="/refund" navigationStarts={() => setIsOpen(false)} />
+            <NavElement label={t('nav.refund')} href="/refund" navigationStarts={() => setIsOpen(false)} />
           </li>
         </ul>
       </aside>

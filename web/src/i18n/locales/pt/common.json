@@ -1,0 +1,45 @@
+{
+  "nav": { "drop": "Drop", "refund": "Reembolso" },
+  "drawer": { "menu": "Menu" },
+  "settings": { "autoconnect": "Conexão automática" },
+  "network": { "label": "Rede", "customRpcUrl": "URL de RPC personalizada", "custom": "RPC próprio" },
+  "footer": {
+    "documentation": "Documentação",
+    "privacyPolicy": "Política de privacidade",
+    "termsOfService": "Termos de serviço"
+  },
+  "language": { "label": "Idioma" },
+  "notification": { "close": "Fechar" },
+  "loader": { "waitingForApproval": "Aguardando a aprovação da carteira..." },
+  "security": {
+    "title": "Dicas de segurança",
+    "readMore": "Leia mais sobre segurança",
+    "gotIt": "Entendi",
+    "sender": {
+      "onboardingTitle": "Perfeito para começar.",
+      "onboardingBody": "O Dropsome foi criado para pequenas transferências que ajudam amigos a começar no mundo das criptomoedas.",
+      "shareTitle": "Compartilhe links com segurança.",
+      "shareBody": "Envie o link para receber somente à pessoa certa, de preferência por um canal privado com criptografia de ponta a ponta.",
+      "cleanupTitle": "Apague depois de usar.",
+      "cleanupBody": "Depois que o drop for recebido ou reembolsado, remova o link das conversas e anotações.",
+      "refundTitle": "Opção de reembolso disponível.",
+      "refundBody": "Se necessário, você pode recuperar os fundos não recebidos a qualquer momento usando o recurso de reembolso."
+    },
+    "receiver": {
+      "welcomeTitle": "Boas-vindas ao mundo das criptomoedas!",
+      "welcomeBody": "Esta carteira é seu ponto de entrada. Use-a para receber o drop e começar sua jornada.",
+      "ownWalletTitle": "Configure sua própria carteira.",
+      "ownWalletBody": "Depois de receber o drop, crie uma nova carteira Solana cuja frase de recuperação só você conheça e transfira seus SOL para ela.",
+      "temporaryTitle": "Considere esta carteira temporária.",
+      "temporaryBody": "Como esta carteira foi criada para o drop, recomendamos usá-la temporariamente e transferir os fundos para sua carteira pessoal.",
+      "officialAppsTitle": "Use aplicativos oficiais de carteira.",
+      "officialAppsBody": "Instale aplicativos de carteira pelos sites oficiais ou pelas lojas de aplicativos. Confirme sempre que está usando um software legítimo."
+    }
+  },
+  "alt": { "securityDisclaimer": "Aviso de segurança" },
+  "pages": {
+    "index": { "title": "Envie SOL para alguém sem carteira" },
+    "claim": { "title": "Receba seu drop" },
+    "refund": { "title": "Reembolse seu drop" }
+  }
+}

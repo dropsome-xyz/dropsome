@@ -44,7 +44,7 @@ const variants = {
  * @param children Child elements to be rendered within the component.
  */
 const Text = ({ variant, className, href, children }: TextProps) => (
-    <p className={cn(className, variants[variant])}>
+    <p className={cn(className ?? '', variants[variant] ?? '')}>
         {href ? (
             <Link href={href} className="min-w-0 overflow-hidden text-ellipsis whitespace-nowrap">
                 {children}

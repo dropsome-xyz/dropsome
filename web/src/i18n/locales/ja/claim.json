@@ -1,0 +1,26 @@
+{
+  "heading": "Drop を受け取る",
+  "subtitle": "簡単な数ステップで SOL を受け取れます！",
+  "getWalletTitle": "ウォレットを用意する",
+  "installInstruction": "SOL を管理するウォレットアプリをインストールしてください：",
+  "walletPhantom": "Phantom ウォレット",
+  "walletSolflare": "Solflare ウォレット",
+  "walletBackpack": "Backpack ウォレット",
+  "importPhraseTitle": "リカバリーフレーズをインポート",
+  "importPhraseBody": "ウォレットアプリを開き、「ウォレットをインポート」を選び、下に表示されているリカバリーフレーズを入力してください。",
+  "completeTitle": "受け取りを完了する",
+  "completeBody": "このリンクに戻り、フレーズから作成したウォレットを接続して、受け取りを承認してください。別のウォレットではこの Drop を受け取れません。",
+  "phraseHeading": "この Drop のリカバリーフレーズ",
+  "noRecord": "このウォレットに対応する有効な Drop が見つかりません。このリンクからフレーズをインポートしたか確認するか、Drop はすでに受け取られている可能性があります。",
+  "toast": {
+    "missingDataMessage": "受け取りデータがありません",
+    "loadFailed": "リカバリーフレーズを読み込めませんでした",
+    "success": "Drop を受け取りました",
+    "error": "Drop の受け取りでエラーが発生しました！",
+    "unexpected": "エラーが発生しました。もう一度お試しください。"
+  },
+  "phrase": {
+    "show": "フレーズを表示",
+    "hide": "フレーズを非表示"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "userRejected": "交易已取消——未发送任何资金。",
+  "insufficientFunds": "你的钱包需要更多 SOL 才能支付 Drop 和网络费用。",
+  "accountNotFound": "找不到该钱包账户。请确认已连接正确的钱包。",
+  "walletNotConnected": "请连接钱包以继续。",
+  "tooManyRequests": "当前请求过多。请稍等片刻再试。",
+  "validation": "请输入有效金额并重试。",
+  "encryption": "处理安全数据失败。请重试。",
+  "programNotInitialized": "无法连接此网络上的 Dropsome。请检查网络或 RPC 设置，然后重试。",
+  "invalidAccount": "提供的账户无效。",
+  "walletConnectionFailed": "连接钱包失败。请重试。",
+  "http400": "请求错误。请检查输入。",
+  "http401": "未授权。请重新连接钱包。",
+  "http403": "访问被拒绝。",
+  "http404": "未找到资源。",
+  "http500": "服务器错误。请稍后再试。",
+  "solanaError": "Solana 网络错误。请重试。",
+  "networkError": "网络错误。请检查连接。",
+  "unexpected": "出错了，请重试。"
+}

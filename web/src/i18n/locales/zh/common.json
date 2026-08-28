@@ -1,0 +1,45 @@
+{
+  "nav": { "drop": "发送", "refund": "退款" },
+  "drawer": { "menu": "菜单" },
+  "settings": { "autoconnect": "自动连接" },
+  "network": { "label": "网络", "customRpcUrl": "自定义 RPC URL", "custom": "自定义" },
+  "footer": {
+    "documentation": "文档",
+    "privacyPolicy": "隐私政策",
+    "termsOfService": "服务条款"
+  },
+  "language": { "label": "语言" },
+  "notification": { "close": "关闭" },
+  "loader": { "waitingForApproval": "等待钱包确认..." },
+  "security": {
+    "title": "安全与防护提示",
+    "readMore": "了解更多安全信息",
+    "gotIt": "我知道了",
+    "sender": {
+      "onboardingTitle": "适合新手入门。",
+      "onboardingBody": "Dropsome 专为小额转账设计，帮助朋友开启加密货币之旅。",
+      "shareTitle": "安全分享链接。",
+      "shareBody": "仅将领取链接发送给指定接收人，最好通过私密的端到端加密渠道。",
+      "cleanupTitle": "使用后及时清理。",
+      "cleanupBody": "Drop 被领取或退款后，请从聊天记录和笔记中彻底删除链接。",
+      "refundTitle": "可使用退款功能。",
+      "refundBody": "如有需要，你可以随时通过退款功能找回未领取的资金。"
+    },
+    "receiver": {
+      "welcomeTitle": "欢迎来到加密世界！",
+      "welcomeBody": "这个钱包是你的入口。用它接收 Drop，开始你的加密之旅。",
+      "ownWalletTitle": "创建自己的钱包。",
+      "ownWalletBody": "领取后，创建一个只有你本人知晓恢复短语的 Solana 钱包，并将 SOL 转入其中。",
+      "temporaryTitle": "将此钱包视为临时钱包。",
+      "temporaryBody": "此钱包是为 Drop 创建的，建议仅临时使用，并将资金转入你的个人钱包。",
+      "officialAppsTitle": "使用官方钱包应用。",
+      "officialAppsBody": "仅从官方网站或应用商店安装钱包应用。务必确认使用的是官方正版软件。"
+    }
+  },
+  "alt": { "securityDisclaimer": "安全免责声明" },
+  "pages": {
+    "index": { "title": "向没有钱包的人发送 SOL" },
+    "claim": { "title": "领取你的 Drop" },
+    "refund": { "title": "退款你的 Drop" }
+  }
+}

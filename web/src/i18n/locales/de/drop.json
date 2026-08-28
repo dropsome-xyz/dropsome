@@ -1,0 +1,33 @@
+{
+  "heading": "Etwas SOL droppen",
+  "tagline": "Jemandem den Einstieg in Krypto erleichtern!",
+  "intro": "Geben Sie den Betrag an SOL ein, den Sie senden möchten. Der Empfänger kann den Drop später erhalten, auch wenn er noch kein Wallet hat. Dropsome erstellt einen Abhollink, den er verwenden kann, sobald er bereit ist.",
+  "amountLabel": "Betrag zum Droppen eingeben",
+  "appFeePerDrop": "App-Gebühr: ",
+  "feeCharged": "Gebühr wird berechnet: ",
+  "feeBelowThreshold": "< 0,0001 SOL",
+  "increaseAmount": "Betrag erhöhen",
+  "decreaseAmount": "Betrag verringern",
+  "button": {
+    "submit": "SOL droppen",
+    "creating": "Drop wird erstellt...",
+    "connectWallet": "Wallet verbinden",
+    "enterAmount": "Betrag eingeben",
+    "belowMinimum": "Betrag liegt unter dem Mindestbetrag"
+  },
+  "link": {
+    "heading": "Diesen Abhollink teilen",
+    "copy": "Link kopieren",
+    "copiedToast": "Link in die Zwischenablage kopiert",
+    "copyAlt": "Abhollink kopieren",
+    "hideAlt": "Abhollink ausblenden",
+    "warningTitle": "Den Link nicht verlieren!",
+    "warningBody": "Die Mittel wurden bereits gesendet und dieser Link ist Ihr goldenes Ticket! Stellen Sie sicher, dass Sie ihn kopiert haben, bevor Sie schließen, sonst kann der Empfänger den Drop nicht erhalten. Falls Sie ihn nicht mehr haben, müssen Sie den Drop zurückholen und von vorne beginnen.",
+    "closeAnyway": "Trotzdem schließen"
+  },
+  "toast": {
+    "success": "Mittel erfolgreich gedroppt!",
+    "error": "Fehler beim Droppen!",
+    "unexpected": "Etwas ist schiefgelaufen. Bitte versuchen Sie es erneut."
+  }
+}

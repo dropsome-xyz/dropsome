@@ -1,0 +1,19 @@
+{
+  "heading": "Ihren Drop zurückholen",
+  "subtitle": "Holen Sie sich zurück, was nicht abgeholt wurde!",
+  "intro": "Wenn der Empfänger seinen Drop noch nicht abgeholt hat, können Sie ihn hier zurückholen. Wählen Sie einen nicht abgeholten Drop aus der Liste und klicken Sie auf „Zurückholen“, um Ihre SOL zurückzuerhalten.",
+  "listHeading": "Ihre nicht abgeholten Drops",
+  "empty": "Keine nicht abgeholten Drops",
+  "amountSol": "{{amount}} SOL",
+  "button": {
+    "refund": "Zurückholen",
+    "processing": "Wird verarbeitet...",
+    "connectWallet": "Wallet nicht verbunden",
+    "selectOne": "Wählen Sie mindestens einen Drop aus"
+  },
+  "toast": {
+    "success": "Drop erfolgreich zurückgeholt!",
+    "error": "Fehler beim Erstellen oder Signieren der Transaktion!",
+    "unexpected": "Etwas ist schiefgelaufen. Bitte versuchen Sie es erneut."
+  }
+}

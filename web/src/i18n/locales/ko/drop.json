@@ -1,0 +1,33 @@
+{
+  "heading": "SOL 드롭하기",
+  "tagline": "누군가의 암호화폐 첫걸음을 응원하세요!",
+  "intro": "보낼 SOL 수량을 입력하세요. 수신자는 나중에 드롭을 받을 수 있으며, 아직 지갑이 없어도 됩니다. Dropsome이 수령 링크를 생성하므로 준비가 되면 이 링크를 사용할 수 있습니다.",
+  "amountLabel": "드롭할 수량을 입력하세요",
+  "appFeePerDrop": "앱 수수료: ",
+  "feeCharged": "부과되는 수수료: ",
+  "feeBelowThreshold": "< 0.0001 SOL",
+  "increaseAmount": "수량 늘리기",
+  "decreaseAmount": "수량 줄이기",
+  "button": {
+    "submit": "SOL 드롭",
+    "creating": "드롭 생성 중...",
+    "connectWallet": "지갑 연결",
+    "enterAmount": "수량 입력",
+    "belowMinimum": "최소 금액보다 적습니다"
+  },
+  "link": {
+    "heading": "이 수령 링크 공유",
+    "copy": "링크 복사",
+    "copiedToast": "링크가 클립보드에 복사되었습니다",
+    "copyAlt": "수령 링크 복사",
+    "hideAlt": "수령 링크 숨기기",
+    "warningTitle": "링크를 잃어버리지 마세요!",
+    "warningBody": "자금은 이미 전송되었으며, 이 링크가 드롭을 받는 데 필요합니다. 닫기 전에 링크를 복사했는지 확인하세요. 링크가 없으면 수신자가 드롭을 받을 수 없습니다. 링크를 놓쳤다면 드롭을 환불하고 다시 시작해야 합니다.",
+    "closeAnyway": "그대로 닫기"
+  },
+  "toast": {
+    "success": "자금을 성공적으로 전송했습니다!",
+    "error": "자금 전송 중 오류가 발생했습니다!",
+    "unexpected": "오류가 발생했습니다. 다시 시도해 주세요."
+  }
+}

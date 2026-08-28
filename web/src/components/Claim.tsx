@@ -1,8 +1,10 @@
 import { useConnection, useWallet } from "@solana/wallet-adapter-react";
 import { FC, useCallback, useEffect, useState, useRef, useMemo } from "react";
+import { useTranslation } from "react-i18next";
 import { notify } from "../utils/notifications";
 import { Program, AnchorProvider, setProvider } from "@anchor-lang/core";
-import { ErrorHandler, ErrorCodes, getUserFriendlyMessage, isAppError } from "../utils/errorHandler";
+import { ErrorHandler, ErrorCodes, isAppError } from "../utils/errorHandler";
+import { useErrorMessage } from "../hooks/useErrorMessage";
 import { IDL_OBJECT, getApiToken } from "../utils/constants";
 
 import { Dropsome } from "../idl/dropsome"
@@ -10,10 +12,12 @@ import { Record } from "../types/record";
 import Link from "next/link";
 import { SignActionLoader } from "./SignActionLoader";
 import { ReceiverDisclaimerDialog } from "./ReceiverDisclaimerDialog";
-
+import type { AnchorWallet } from "../types/anchorWallet";
 export const Claim: FC = () => {
     const connectedWallet = useWallet();
     const { connection } = useConnection();
+    const { t } = useTranslation(['claim', 'common']);
+    const errorMessage = useErrorMessage();
     const [phrase, setPhrase] = useState('');
     const [isLoading, setIsLoading] = useState(false);
     const [isDisclaimerShown, setIsDisclaimerShown] = useState(false);
@@ -21,7 +25,7 @@ export const Claim: FC = () => {
 
     const getProvider = useMemo(() => {
         if (!connectedWallet.connected) return null;
-        const provider = new AnchorProvider(connection, connectedWallet, AnchorProvider.defaultOptions());
+        const provider = new AnchorProvider(connection, connectedWallet as unknown as AnchorWallet, AnchorProvider.defaultOptions());
         setProvider(provider);
         return provider;
     }, [connection, connectedWallet]);
@@ -46,8 +50,8 @@ export const Claim: FC = () => {
                 if (!encryptedMnemonic) {
                     throw ErrorHandler.createError(
                         ErrorCodes.VALIDATION_ERROR,
-                        "Missing claim data",
-                        "No encrypted mnemonic found in URL"
+                        { field: 'claimData' },
+                        'No encrypted mnemonic found in URL'
                     );
                 }
 
@@ -74,18 +78,9 @@ export const Claim: FC = () => {
             } catch (error) {
                 console.error('Error while getting passphrase:', error);
 
-                let errorMessage = "We couldn't load the recovery phrase";
-                let errorDescription = "Something went wrong. Please try again.";
-
-                if (isAppError(error)) {
-                    errorMessage = getUserFriendlyMessage(error);
-                    errorDescription = error.details || error.message;
-                }
-
                 notify({
                     type: "error",
-                    message: errorMessage,
-                    description: errorDescription
+                    message: isAppError(error) ? errorMessage(error) : t('toast.loadFailed')
                 });
             }
         };
@@ -98,15 +93,15 @@ export const Claim: FC = () => {
             setIsLoading(true);
 
             if (!connectedWallet.connected) {
-                throw ErrorHandler.createError(ErrorCodes.WALLET_NOT_CONNECTED, "Wallet not connected!");
+                throw ErrorHandler.createError(ErrorCodes.WALLET_NOT_CONNECTED);
             }
 
             if (!getProvider) {
-                throw ErrorHandler.createError(ErrorCodes.WALLET_NOT_CONNECTED, "Provider not initialized!");
+                throw ErrorHandler.createError(ErrorCodes.WALLET_NOT_CONNECTED);
             }
 
             if (!program) {
-                throw ErrorHandler.createError(ErrorCodes.PROGRAM_NOT_INITIALIZED, "Program instance not initialized!");
+                throw ErrorHandler.createError(ErrorCodes.PROGRAM_NOT_INITIALIZED);
             }
 
             const signature = await program.methods
@@ -120,31 +115,20 @@ export const Claim: FC = () => {
                 })
                 .rpc();
 
-            notify({ type: "success", message: 'Drop claimed successfully', txid: signature });
+            notify({ type: "success", message: t('toast.success'), txid: signature });
             console.log("Successfully claimed some drop: " + signature);
         } catch (error) {
-            let errorMessage = "Error while claiming drop!";
-            let errorDescription = "Something went wrong. Please try again.";
-
-            if (isAppError(error)) {
-                errorMessage = getUserFriendlyMessage(error);
-                errorDescription = error.details || error.message;
-            } else {
-                const solanaError = ErrorHandler.handleSolanaError(error, 'claim');
-                errorMessage = getUserFriendlyMessage(solanaError);
-                errorDescription = solanaError.details || solanaError.message;
-            }
+            const appError = isAppError(error) ? error : ErrorHandler.handleSolanaError(error, 'claim');
 
             notify({
                 type: "error",
-                message: errorMessage,
-                description: errorDescription
+                message: errorMessage(appError)
             });
             console.error("Error while claiming drop:", error);
         } finally {
             setIsLoading(false);
         }
-    }, [connectedWallet.connected, getProvider, program]);
+    }, [connectedWallet.connected, getProvider, program, t, errorMessage]);
 
     useEffect(() => {
         if (!connectedWallet.connected || !getProvider || !program) return;
@@ -176,7 +160,7 @@ export const Claim: FC = () => {
                     console.log("No drop record found for this wallet");
                     notify({
                         type: "error",
-                        message: "We couldn't find an active drop for this wallet. Check that you imported the phrase from this link, or the drop may already have been claimed."
+                        message: t('noRecord'),
                     });
                 }
             } catch (error) {
@@ -186,8 +170,7 @@ export const Claim: FC = () => {
                 const solanaError = ErrorHandler.handleSolanaError(error, 'fetchDropRecord');
                 notify({
                     type: "error",
-                    message: getUserFriendlyMessage(solanaError),
-                    description: solanaError.details || solanaError.message
+                    message: errorMessage(solanaError)
                 });
             } finally {
                 isFetchingRecordRef.current = false;
@@ -206,54 +189,54 @@ export const Claim: FC = () => {
             <div className="flex flex-col">
                 {isLoading && <SignActionLoader />}
                 <h4 className="md:w-full text-2x1 md:text-4xl text-center text-slate-300 my-2">
-                    <p>Just a few easy steps to get your SOL!</p>
+                    <p>{t('subtitle')}</p>
                     <ol className="list-decimal list-outside text-slate-300 text-lg space-y-6 mt-4 mb-6 max-w-md mx-auto text-start">
                         <li className="ml-6">
-                            <p className="font-semibold">Get a Wallet</p>
+                            <p className="font-semibold">{t('getWalletTitle')}</p>
                             <p className="text-slate-500 mt-2 text-base">
-                                Install a wallet app to manage your SOL:
+                                {t('installInstruction')}
                             </p>
                             <ul className="list-disc list-outside ml-6 mt-2 text-slate-400 space-y-1 text-base">
                                 <li>
                                     <Link href="https://phantom.app/" className="text-indigo-500 hover:text-indigo-300">
-                                        Phantom Wallet
+                                        {t('walletPhantom')}
                                     </Link>
                                 </li>
                                 <li>
                                     <Link href="https://solflare.com/" className="text-indigo-500 hover:text-indigo-300">
-                                        Solflare Wallet
+                                        {t('walletSolflare')}
                                     </Link>
                                 </li>
                                 <li>
                                     <Link href="https://backpack.app/" className="text-indigo-500 hover:text-indigo-300">
-                                        Backpack Wallet
+                                        {t('walletBackpack')}
                                     </Link>
                                 </li>
                             </ul>
                         </li>
                         <li className="ml-6">
-                            <span className="font-semibold">Import the recovery phrase</span>
+                            <span className="font-semibold">{t('importPhraseTitle')}</span>
                             <p className="text-slate-500 mt-2 text-base">
-                                Open the wallet app, choose &quot;Import wallet,&quot; and enter the recovery phrase shown below.
+                                {t('importPhraseBody')}
                             </p>
                         </li>
                         <li className="ml-6">
-                            <span className="font-semibold">Complete the Claim</span>
+                            <span className="font-semibold">{t('completeTitle')}</span>
                             <p className="text-slate-500 mt-2 text-base">
-                                Return to this link, connect the wallet created from this phrase, and approve the claim. A different wallet cannot claim this drop.
+                                {t('completeBody')}
                             </p>
                         </li>
                     </ol>
                 </h4>
                 {phrase && (<div>
-                    <h2 className="text-2xl font-bold mb-4 text-nova">Your recovery phrase for this drop</h2>
+                    <h2 className="text-2xl font-bold mb-4 text-nova">{t('phraseHeading')}</h2>
                     <div className="relative group max-w-xs mx-auto">
                         <div className="absolute -inset-0.5 bg-gradient-to-r from-vortex to-vortex rounded-lg blur opacity-50 animate-tilt"></div>
                         <div className="relative max-w-xs mx-auto textarea textarea-primary textarea-lg bg-primary border-2 border-[#5252529f] p-6 px-10 my-2 text-start">
                             <button
                                 onClick={() => setIsDisclaimerShown(true)}
                                 className="absolute top-2 left-2 p-0 bg-transparent border-none cursor-pointer">
-                                <img src="/security_tip.svg" alt="Security disclaimer" width={20} height={20} />
+                                <img src="/security_tip.svg" alt={t('common:alt.securityDisclaimer')} width={20} height={20} />
                             </button>
                             <p className="text-2xl">{phrase}</p>
                         </div>

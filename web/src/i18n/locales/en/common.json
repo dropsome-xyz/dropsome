@@ -1,0 +1,45 @@
+{
+  "nav": { "drop": "Drop", "refund": "Refund" },
+  "drawer": { "menu": "Menu" },
+  "settings": { "autoconnect": "Autoconnect" },
+  "network": { "label": "Network", "customRpcUrl": "Custom RPC URL", "custom": "Custom" },
+  "footer": {
+    "documentation": "Documentation",
+    "privacyPolicy": "Privacy Policy",
+    "termsOfService": "Terms of Service"
+  },
+  "language": { "label": "Language" },
+  "notification": { "close": "Close" },
+  "loader": { "waitingForApproval": "Waiting for wallet approval..." },
+  "security": {
+    "title": "Security & Safety Tips",
+    "readMore": "Read more about security",
+    "gotIt": "Got it",
+    "sender": {
+      "onboardingTitle": "Perfect for onboarding.",
+      "onboardingBody": "Dropsome is designed for small transfers to help friends get started with crypto.",
+      "shareTitle": "Share links securely.",
+      "shareBody": "Send the claim link only to the intended person, preferably over a private, end-to-end encrypted channel.",
+      "cleanupTitle": "Clean up after use.",
+      "cleanupBody": "After the drop is claimed or refunded, remove the link from chats and notes for good housekeeping.",
+      "refundTitle": "Refund option available.",
+      "refundBody": "You can always recover unclaimed funds using the refund feature if needed."
+    },
+    "receiver": {
+      "welcomeTitle": "Welcome to crypto!",
+      "welcomeBody": "This wallet is your entry point. Use it to receive the drop and start your journey.",
+      "ownWalletTitle": "Set up your own wallet.",
+      "ownWalletBody": "After claiming, create a new Solana wallet where only you know the recovery phrase, and transfer your SOL there.",
+      "temporaryTitle": "Treat this wallet as temporary.",
+      "temporaryBody": "Since this wallet was created for the drop, it's recommended to use it temporarily and move funds to your personal wallet.",
+      "officialAppsTitle": "Use official wallet apps.",
+      "officialAppsBody": "Install wallet apps from official websites or app stores. Always verify you're using legitimate software."
+    }
+  },
+  "alt": { "securityDisclaimer": "Security disclaimer" },
+  "pages": {
+    "index": { "title": "Send SOL to someone without a wallet" },
+    "claim": { "title": "Claim your drop" },
+    "refund": { "title": "Refund your drop" }
+  }
+}

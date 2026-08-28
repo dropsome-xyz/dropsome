@@ -1,0 +1,20 @@
+{
+  "userRejected": "Transaction annulée — aucun fonds n'a été envoyé.",
+  "insufficientFunds": "Votre portefeuille a besoin de plus de SOL pour le drop et les frais du réseau.",
+  "accountNotFound": "Impossible de trouver ce compte de portefeuille. Vérifiez que le bon portefeuille est connecté.",
+  "walletNotConnected": "Veuillez connecter votre portefeuille pour continuer.",
+  "tooManyRequests": "Trop de requêtes en ce moment. Attendez un instant, puis réessayez.",
+  "validation": "Saisissez un montant valide et réessayez.",
+  "encryption": "Impossible de traiter les données sécurisées. Veuillez réessayer.",
+  "programNotInitialized": "Impossible de se connecter à Dropsome sur ce réseau. Vérifiez les paramètres du réseau ou du RPC, puis réessayez.",
+  "invalidAccount": "Le compte fourni n'est pas valide.",
+  "walletConnectionFailed": "Impossible de connecter le portefeuille. Veuillez réessayer.",
+  "http400": "Requête incorrecte. Vérifiez vos données.",
+  "http401": "Non autorisé. Reconnectez votre portefeuille.",
+  "http403": "Accès refusé.",
+  "http404": "Ressource introuvable.",
+  "http500": "Erreur du serveur. Veuillez réessayer plus tard.",
+  "solanaError": "Erreur du réseau Solana. Veuillez réessayer.",
+  "networkError": "Erreur réseau. Vérifiez votre connexion.",
+  "unexpected": "Une erreur s'est produite. Veuillez réessayer."
+}

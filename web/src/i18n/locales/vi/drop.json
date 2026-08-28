@@ -1,0 +1,33 @@
+{
+  "heading": "Tặng một ít SOL",
+  "tagline": "Khởi đầu hành trình tiền mã hóa cho ai đó!",
+  "intro": "Nhập số lượng SOL muốn gửi. Người nhận có thể nhận Drop sau, ngay cả khi chưa có ví. Dropsome sẽ tạo một liên kết nhận để họ sử dụng khi sẵn sàng.",
+  "amountLabel": "Nhập số lượng SOL muốn tặng",
+  "appFeePerDrop": "Phí ứng dụng: ",
+  "feeCharged": "Phí sẽ được tính: ",
+  "feeBelowThreshold": "< 0.0001 SOL",
+  "increaseAmount": "Tăng số lượng",
+  "decreaseAmount": "Giảm số lượng",
+  "button": {
+    "submit": "Tặng SOL",
+    "creating": "Đang tạo Drop của bạn...",
+    "connectWallet": "Kết nối ví",
+    "enterAmount": "Nhập số lượng",
+    "belowMinimum": "Số lượng thấp hơn mức tối thiểu"
+  },
+  "link": {
+    "heading": "Chia sẻ liên kết nhận này",
+    "copy": "Sao chép liên kết",
+    "copiedToast": "Đã sao chép liên kết vào bộ nhớ tạm",
+    "copyAlt": "Sao chép liên kết nhận",
+    "hideAlt": "Ẩn liên kết nhận",
+    "warningTitle": "Đừng để mất liên kết!",
+    "warningBody": "Tiền đã được gửi và liên kết này là chìa khóa để nhận tiền! Hãy đảm bảo bạn đã sao chép liên kết trước khi đóng, nếu không người nhận sẽ không thể nhận Drop. Nếu bạn bỏ lỡ liên kết, bạn sẽ phải hoàn tiền cho Drop và bắt đầu lại.",
+    "closeAnyway": "Vẫn đóng"
+  },
+  "toast": {
+    "success": "Đã gửi tiền thành công!",
+    "error": "Lỗi khi gửi tiền!",
+    "unexpected": "Đã xảy ra lỗi. Vui lòng thử lại."
+  }
+}

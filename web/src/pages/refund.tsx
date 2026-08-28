@@ -1,12 +1,16 @@
-import type { NextPage } from "next";
+import type { GetStaticProps, NextPage } from "next";
 import Head from "next/head";
 import { RefundView } from "../views/refund/index";
+import { useTranslation } from 'react-i18next';
+import { serverSideTranslations } from 'next-i18next/pages/serverSideTranslations';
 
-const Refund: NextPage = (props) => {
+const Refund: NextPage = () => {
+  const { t } = useTranslation('common');
+
   return (
     <div>
       <Head>
-        <title>Refund your drop</title>
+        <title>{t('pages.refund.title')}</title>
         <meta
           name="description"
           content="Recover an unclaimed drop"
@@ -17,5 +21,11 @@ const Refund: NextPage = (props) => {
     </div>
   );
 };
+
+export const getStaticProps: GetStaticProps = async ({ locale }) => ({
+  props: {
+    ...(await serverSideTranslations(locale ?? 'en', ['common', 'refund', 'errors'])),
+  },
+});
 
 export default Refund;

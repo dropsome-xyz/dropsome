@@ -1,0 +1,20 @@
+{
+  "userRejected": "Transaksi dibatalkan — tidak ada yang dikirim.",
+  "insufficientFunds": "Dompet Anda membutuhkan lebih banyak SOL untuk drop dan biaya jaringan.",
+  "accountNotFound": "Kami tidak menemukan akun dompet tersebut. Periksa apakah dompet yang benar sudah terhubung.",
+  "walletNotConnected": "Silakan hubungkan dompet Anda untuk melanjutkan.",
+  "tooManyRequests": "Terlalu banyak permintaan saat ini. Tunggu sebentar, lalu coba lagi.",
+  "validation": "Masukkan jumlah yang valid dan coba lagi.",
+  "encryption": "Gagal memproses data dengan aman. Coba lagi.",
+  "programNotInitialized": "Kami tidak dapat terhubung ke Dropsome di jaringan ini. Periksa pengaturan jaringan atau RPC Anda dan coba lagi.",
+  "invalidAccount": "Akun yang diberikan tidak valid.",
+  "walletConnectionFailed": "Gagal menghubungkan dompet. Coba lagi.",
+  "http400": "Permintaan tidak valid. Periksa masukan Anda.",
+  "http401": "Tidak diizinkan. Hubungkan kembali dompet Anda.",
+  "http403": "Akses ditolak.",
+  "http404": "Sumber daya tidak ditemukan.",
+  "http500": "Terjadi kesalahan pada server. Coba lagi nanti.",
+  "solanaError": "Terjadi kesalahan pada jaringan Solana. Coba lagi.",
+  "networkError": "Terjadi kesalahan jaringan. Periksa koneksi Anda.",
+  "unexpected": "Terjadi kesalahan. Coba lagi."
+}

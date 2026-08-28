@@ -1,0 +1,20 @@
+{
+  "userRejected": "Transação cancelada — nada foi enviado.",
+  "insufficientFunds": "Sua carteira precisa de mais SOL para o drop e a taxa da rede.",
+  "accountNotFound": "Não encontramos essa conta da carteira. Confira se a carteira correta está conectada.",
+  "walletNotConnected": "Conecte sua carteira para continuar.",
+  "tooManyRequests": "Há muitas solicitações neste momento. Aguarde um pouco e tente novamente.",
+  "validation": "Informe uma quantidade válida e tente novamente.",
+  "encryption": "Não foi possível processar os dados seguros. Tente novamente.",
+  "programNotInitialized": "Não foi possível conectar ao Dropsome nesta rede. Confira sua rede ou as configurações de RPC e tente novamente.",
+  "invalidAccount": "A conta informada é inválida.",
+  "walletConnectionFailed": "Não foi possível conectar a carteira. Tente novamente.",
+  "http400": "Solicitação inválida. Confira os dados informados.",
+  "http401": "Não autorizado. Conecte sua carteira novamente.",
+  "http403": "Acesso negado.",
+  "http404": "Recurso não encontrado.",
+  "http500": "Erro do servidor. Tente novamente mais tarde.",
+  "solanaError": "Erro na rede Solana. Tente novamente.",
+  "networkError": "Erro de rede. Confira sua conexão.",
+  "unexpected": "Algo deu errado. Tente novamente."
+}

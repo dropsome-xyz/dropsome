@@ -1,0 +1,33 @@
+{
+  "heading": "发送一些 SOL",
+  "tagline": "帮朋友开启加密之旅！",
+  "intro": "输入要发送的 SOL 数量。接收方稍后可以领取 Drop，即使他们还没有钱包。Dropsome 会创建一个领取链接，接收方准备好后即可使用。",
+  "amountLabel": "输入发送金额",
+  "appFeePerDrop": "应用费：",
+  "feeCharged": "将收取费用：",
+  "feeBelowThreshold": "< 0.0001 SOL",
+  "increaseAmount": "增加金额",
+  "decreaseAmount": "减少金额",
+  "button": {
+    "submit": "发送 SOL",
+    "creating": "正在创建你的 Drop...",
+    "connectWallet": "连接钱包",
+    "enterAmount": "请输入金额",
+    "belowMinimum": "金额低于最小值"
+  },
+  "link": {
+    "heading": "分享此领取链接",
+    "copy": "复制链接",
+    "copiedToast": "链接已复制到剪贴板",
+    "copyAlt": "复制领取链接",
+    "hideAlt": "隐藏领取链接",
+    "warningTitle": "别丢了链接！",
+    "warningBody": "资金已经发送，这条链接就是领取凭证！关闭前请务必确认已经复制，否则接收方将无法领取。如果错过了链接，你需要先退款，然后重新开始。",
+    "closeAnyway": "仍要关闭"
+  },
+  "toast": {
+    "success": "资金发送成功！",
+    "error": "发送资金时出错！",
+    "unexpected": "出错了，请重试。"
+  }
+}

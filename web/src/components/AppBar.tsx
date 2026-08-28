@@ -1,17 +1,19 @@
 import dynamic from 'next/dynamic';
 import React, { useState } from "react";
+import { useTranslation } from "react-i18next";
 import { useAutoConnect } from '../contexts/AutoConnectProvider';
 import NetworkSwitcher from './NetworkSwitcher';
+import { LanguageSwitcher } from './LanguageSwitcher';
 import NavElement from './nav-element';
 import { useDrawer } from "./DrawerProvider";
 import { Logo } from './Logo';
-
 const WalletMultiButtonDynamic = dynamic(
   async () => (await import('@solana/wallet-adapter-react-ui')).WalletMultiButton,
   { ssr: false }
 );
 
 export const AppBar: React.FC = () => {
+  const { t, i18n } = useTranslation('common');
   const { autoConnect, setAutoConnect } = useAutoConnect();
   const [isOpen,setIsOpen] = useDrawer();
   return (
@@ -32,12 +34,12 @@ export const AppBar: React.FC = () => {
         <div className="navbar-end !items-stretch">
           <div className="hidden md:inline-flex items-center h-min justify-items gap-6">
             <NavElement
-              label="Drop"
+              label={t('nav.drop')}
               href="/"
               navigationStarts={() => setIsOpen(false)}
             />
             <NavElement
-              label="Refund"
+              label={t('nav.refund')}
               href="/refund"
               navigationStarts={() => setIsOpen(false)}
             />
@@ -61,11 +63,16 @@ export const AppBar: React.FC = () => {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
               </svg>
             </div>
-            <ul tabIndex={0} className="p-2 shadow menu dropdown-content bg-base-100 rounded-box w-60">
+            <ul tabIndex={0} className="p-2 shadow menu dropdown-content bg-base-100 rounded-box w-80">
+              <li>
+                <div className="form-control bg-opacity-100">
+                  <LanguageSwitcher compact />
+                </div>
+              </li>
               <li>
                 <div className="form-control bg-opacity-100">
                   <label className="cursor-pointer label">
-                    <a>Autoconnect</a>
+                    <a>{t('settings.autoconnect')}</a>
                     <input type="checkbox" checked={autoConnect} onChange={(e) => setAutoConnect(e.target.checked)} className="toggle" />
                   </label>
                   <NetworkSwitcher />

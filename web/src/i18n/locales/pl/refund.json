@@ -1,0 +1,19 @@
+{
+  "heading": "Zwróć swój drop",
+  "subtitle": "Odbierz to, co nie zostało odebrane!",
+  "intro": "Jeśli odbiorca nie odebrał swojego dropu, możesz go tu zwrócić. Wybierz nieodebrany drop z listy i kliknij przycisk zwrotu, by odzyskać swoje SOL.",
+  "listHeading": "Twoje nieodebrane dropy",
+  "empty": "Brak nieodebranych dropów",
+  "amountSol": "{{amount}} SOL",
+  "button": {
+    "refund": "Zwróć",
+    "processing": "Przetwarzanie...",
+    "connectWallet": "Portfel nie połączony",
+    "selectOne": "Wybierz co najmniej jeden drop"
+  },
+  "toast": {
+    "success": "Drop pomyślnie zwrócony!",
+    "error": "Błąd przy budowaniu lub podpisywaniu transakcji!",
+    "unexpected": "Coś poszło nie tak. Spróbuj ponownie."
+  }
+}

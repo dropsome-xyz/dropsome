@@ -1,0 +1,45 @@
+{
+  "nav": { "drop": "Drop", "refund": "Reembolso" },
+  "drawer": { "menu": "Menú" },
+  "settings": { "autoconnect": "Conexión automática" },
+  "network": { "label": "Red", "customRpcUrl": "URL de RPC personalizada", "custom": "Personalizada" },
+  "footer": {
+    "documentation": "Documentación",
+    "privacyPolicy": "Política de privacidad",
+    "termsOfService": "Términos del servicio"
+  },
+  "language": { "label": "Idioma" },
+  "notification": { "close": "Cerrar" },
+  "loader": { "waitingForApproval": "Esperando la aprobación del monedero..." },
+  "security": {
+    "title": "Consejos de seguridad",
+    "readMore": "Más información sobre seguridad",
+    "gotIt": "Entendido",
+    "sender": {
+      "onboardingTitle": "Ideal para empezar.",
+      "onboardingBody": "Dropsome está diseñado para pequeñas transferencias que ayudan a tus amigos a iniciarse en las criptomonedas.",
+      "shareTitle": "Comparte los enlaces de forma segura.",
+      "shareBody": "Envía el enlace para reclamar solo a la persona indicada, preferiblemente por un canal privado con cifrado de extremo a extremo.",
+      "cleanupTitle": "Limpia todo después de usarlo.",
+      "cleanupBody": "Después de reclamar o reembolsar el drop, elimina el enlace de los chats y las notas para mantener todo en orden.",
+      "refundTitle": "Hay una opción de reembolso.",
+      "refundBody": "Siempre puedes recuperar los fondos no reclamados mediante la función de reembolso si lo necesitas."
+    },
+    "receiver": {
+      "welcomeTitle": "¡Te damos la bienvenida a las criptomonedas!",
+      "welcomeBody": "Este monedero es tu punto de entrada. Úsalo para recibir el drop y comenzar tu camino.",
+      "ownWalletTitle": "Configura tu propio monedero.",
+      "ownWalletBody": "Después de reclamarlo, crea un monedero nuevo de Solana cuya frase de recuperación solo conozcas tú y transfiere allí tus SOL.",
+      "temporaryTitle": "Considera este monedero como temporal.",
+      "temporaryBody": "Como este monedero se creó para el drop, se recomienda usarlo temporalmente y trasladar los fondos a tu monedero personal.",
+      "officialAppsTitle": "Usa aplicaciones oficiales de monedero.",
+      "officialAppsBody": "Instala aplicaciones de monedero desde sitios web oficiales o tiendas de aplicaciones. Comprueba siempre que usas software legítimo."
+    }
+  },
+  "alt": { "securityDisclaimer": "Aviso de seguridad" },
+  "pages": {
+    "index": { "title": "Envía SOL a alguien sin monedero" },
+    "claim": { "title": "Reclama tu drop" },
+    "refund": { "title": "Reembolsa tu drop" }
+  }
+}

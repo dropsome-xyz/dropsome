@@ -1,0 +1,45 @@
+{
+  "nav": { "drop": "Drop", "refund": "Zwrot" },
+  "drawer": { "menu": "Menu" },
+  "settings": { "autoconnect": "Automatyczne łączenie" },
+  "network": { "label": "Sieć", "customRpcUrl": "URL własnego RPC", "custom": "Własny RPC" },
+  "footer": {
+    "documentation": "Dokumentacja",
+    "privacyPolicy": "Polityka prywatności",
+    "termsOfService": "Warunki korzystania"
+  },
+  "language": { "label": "Język" },
+  "notification": { "close": "Zamknij" },
+  "loader": { "waitingForApproval": "Oczekiwanie na zatwierdzenie w portfelu..." },
+  "security": {
+    "title": "Porady dotyczące bezpieczeństwa",
+    "readMore": "Dowiedz się więcej o bezpieczeństwie",
+    "gotIt": "Rozumiem",
+    "sender": {
+      "onboardingTitle": "Idealne na pierwsze kroki.",
+      "onboardingBody": "Dropsome zostało stworzone, by pomóc znajomym rozpocząć przygodę z kryptowalutami za pomocą małych przelewów.",
+      "shareTitle": "Bezpiecznie udostępniaj linki.",
+      "shareBody": "Wyślij link do odebrania tylko właściwej osobie, najlepiej prywatnym kanałem z szyfrowaniem od końca do końca.",
+      "cleanupTitle": "Posprzątaj po użyciu.",
+      "cleanupBody": "Po odebraniu lub zwrocie dropu usuń link z czatów i notatek.",
+      "refundTitle": "Dostępny zwrot.",
+      "refundBody": "Niewykorzystane środki zawsze możesz odzyskać dzięki funkcji zwrotu."
+    },
+    "receiver": {
+      "welcomeTitle": "Witaj w krypto!",
+      "welcomeBody": "Ten portfel to Twój punkt wejścia. Użyj go, by odebrać drop i zacząć swoją przygodę.",
+      "ownWalletTitle": "Załóż własny portfel.",
+      "ownWalletBody": "Po odebraniu środków stwórz nowy portfel Solana, którego frazę odzyskiwania znasz tylko Ty, i prześlij tam swoje SOL.",
+      "temporaryTitle": "Traktuj ten portfel jako tymczasowy.",
+      "temporaryBody": "Ten portfel powstał na potrzeby dropu, więc zaleca się używanie go tymczasowo i przeniesienie środków do własnego portfela.",
+      "officialAppsTitle": "Używaj oficjalnych aplikacji.",
+      "officialAppsBody": "Instaluj aplikacje portfeli z oficjalnych stron lub sklepów z aplikacjami. Zawsze sprawdzaj, czy używasz oficjalnego oprogramowania."
+    }
+  },
+  "alt": { "securityDisclaimer": "Zastrzeżenie dotyczące bezpieczeństwa" },
+  "pages": {
+    "index": { "title": "Wyślij SOL komuś bez portfela" },
+    "claim": { "title": "Odbierz swój drop" },
+    "refund": { "title": "Zwróć swój drop" }
+  }
+}

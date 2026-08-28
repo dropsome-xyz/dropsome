@@ -1,0 +1,19 @@
+{
+  "heading": "Refund Your Drop",
+  "subtitle": "Take back what wasn't claimed!",
+  "intro": "If the receiver hasn't claimed their drop, you can refund it here. Select an unclaimed drop from the list and hit the refund button to get your SOL back.",
+  "listHeading": "Your unclaimed drops",
+  "empty": "No unclaimed drops",
+  "amountSol": "{{amount}} SOL",
+  "button": {
+    "refund": "Refund",
+    "processing": "Processing...",
+    "connectWallet": "Wallet not connected",
+    "selectOne": "Select at least one drop"
+  },
+  "toast": {
+    "success": "Successfully refunded drop!",
+    "error": "Error while building or signing transactions!",
+    "unexpected": "Something went wrong. Please try again."
+  }
+}

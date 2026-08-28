@@ -1,0 +1,26 @@
+{
+  "heading": "Récupérez votre drop",
+  "subtitle": "Quelques étapes simples pour obtenir vos SOL !",
+  "getWalletTitle": "Obtenir un portefeuille",
+  "installInstruction": "Installez une application de portefeuille pour gérer vos SOL :",
+  "walletPhantom": "Portefeuille Phantom",
+  "walletSolflare": "Portefeuille Solflare",
+  "walletBackpack": "Portefeuille Backpack",
+  "importPhraseTitle": "Importez la phrase de récupération",
+  "importPhraseBody": "Ouvrez l'application de portefeuille, choisissez « Importer un portefeuille » et saisissez la phrase de récupération affichée ci-dessous.",
+  "completeTitle": "Terminez la récupération",
+  "completeBody": "Revenez sur ce lien, connectez le portefeuille créé avec cette phrase et approuvez la récupération. Un autre portefeuille ne peut pas récupérer ce drop.",
+  "phraseHeading": "Votre phrase de récupération pour ce drop",
+  "noRecord": "Nous n'avons trouvé aucun drop actif pour ce portefeuille. Vérifiez que vous avez importé la phrase depuis ce lien, ou que le drop a déjà été récupéré.",
+  "toast": {
+    "missingDataMessage": "Données de récupération manquantes",
+    "loadFailed": "Impossible de charger la phrase de récupération",
+    "success": "Drop récupéré avec succès",
+    "error": "Erreur lors de la récupération du drop !",
+    "unexpected": "Une erreur s'est produite. Veuillez réessayer."
+  },
+  "phrase": {
+    "show": "Afficher la phrase",
+    "hide": "Masquer la phrase"
+  }
+}

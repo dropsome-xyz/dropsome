@@ -1,0 +1,19 @@
+{
+  "heading": "드롭 환불하기",
+  "subtitle": "미수령 자금을 되찾으세요!",
+  "intro": "수신자가 아직 드롭을 받지 않았다면 여기서 환불할 수 있습니다. 목록에서 미수령 드롭을 선택하고 환불 버튼을 눌러 SOL을 되찾으세요.",
+  "listHeading": "미수령 드롭",
+  "empty": "미수령 드롭이 없습니다",
+  "amountSol": "{{amount}} SOL",
+  "button": {
+    "refund": "환불",
+    "processing": "처리 중...",
+    "connectWallet": "지갑 연결 필요",
+    "selectOne": "하나 이상의 드롭을 선택하세요"
+  },
+  "toast": {
+    "success": "드롭을 성공적으로 환불했습니다!",
+    "error": "트랜잭션 생성 또는 서명 중 오류가 발생했습니다!",
+    "unexpected": "오류가 발생했습니다. 다시 시도해 주세요."
+  }
+}

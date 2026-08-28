@@ -1,0 +1,19 @@
+{
+  "heading": "Reembolsa tu drop",
+  "subtitle": "¡Recupera lo que no se reclamó!",
+  "intro": "Si el destinatario no ha reclamado su drop, puedes reembolsarlo aquí. Selecciona un drop no reclamado de la lista y pulsa el botón de reembolso para recuperar tus SOL.",
+  "listHeading": "Tus drops no reclamados",
+  "empty": "No hay drops no reclamados",
+  "amountSol": "{{amount}} SOL",
+  "button": {
+    "refund": "Reembolsar",
+    "processing": "Procesando...",
+    "connectWallet": "Monedero no conectado",
+    "selectOne": "Selecciona al menos un drop"
+  },
+  "toast": {
+    "success": "¡Drop reembolsado correctamente!",
+    "error": "¡Error al crear o firmar las transacciones!",
+    "unexpected": "Algo salió mal. Inténtalo de nuevo."
+  }
+}

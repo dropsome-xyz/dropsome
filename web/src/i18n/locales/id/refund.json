@@ -1,0 +1,19 @@
+{
+  "heading": "Kembalikan Drop Anda",
+  "subtitle": "Ambil kembali yang belum diterima!",
+  "intro": "Jika penerima belum menerima drop mereka, Anda dapat mengembalikannya di sini. Pilih drop yang belum diterima dari daftar dan tekan tombol pengembalian untuk mendapatkan SOL Anda kembali.",
+  "listHeading": "Drop Anda yang belum diterima",
+  "empty": "Tidak ada drop yang belum diterima",
+  "amountSol": "{{amount}} SOL",
+  "button": {
+    "refund": "Kembalikan",
+    "processing": "Memproses...",
+    "connectWallet": "Dompet tidak terhubung",
+    "selectOne": "Pilih setidaknya satu drop"
+  },
+  "toast": {
+    "success": "Drop berhasil dikembalikan!",
+    "error": "Terjadi kesalahan saat membuat atau menandatangani transaksi!",
+    "unexpected": "Terjadi kesalahan. Coba lagi."
+  }
+}

@@ -1,11 +1,12 @@
 import { FC, useState } from 'react';
 import dynamic from 'next/dynamic';
 import { useNetworkConfiguration } from '../contexts/NetworkConfigurationProvider';
+import { useTranslation } from "react-i18next";
 
 const NetworkSwitcher: FC = () => {
   const { networkConfiguration, setNetworkConfiguration, customRpcUrl, setCustomRpcUrl } = useNetworkConfiguration();
+  const { t } = useTranslation('common');
   const [showCustomInput, setShowCustomInput] = useState(false);
-
   console.log(networkConfiguration);
 
   const handleNetworkChange = (network: string) => {
@@ -16,20 +17,20 @@ const NetworkSwitcher: FC = () => {
   return (
     <div className="flex flex-col gap-2">
       <label className="cursor-pointer label">
-        <a>Network</a>
+        <a>{t('network.label')}</a>
         <select
           value={networkConfiguration}
           onChange={(e) => handleNetworkChange(e.target.value)}
-          className="select max-w-xs"
+          className="select select-sm bg-base-100 text-base-content w-38 border-none focus:border-vortex focus:ring-0 focus:outline-none"
         >
-          <option value="mainnet-beta">main</option>
-          <option value="custom">custom</option>
+          <option value="mainnet-beta">mainnet</option>
+          <option value="custom">{t('network.custom')}</option>
         </select>
       </label>
-      
+
       {(networkConfiguration === 'custom' || showCustomInput) && (
         <label className="label">
-          <span className="label-text">Custom RPC URL</span>
+          <span className="label-text">{t('network.customRpcUrl')}</span>
           <input
             type="text"
             placeholder="http://localhost:8899"

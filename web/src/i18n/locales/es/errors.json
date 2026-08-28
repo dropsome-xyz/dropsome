@@ -1,0 +1,20 @@
+{
+  "userRejected": "Transacción cancelada; no se envió nada.",
+  "insufficientFunds": "Tu monedero necesita más SOL para el drop y la comisión de red.",
+  "accountNotFound": "No encontramos la cuenta de ese monedero. Comprueba que el monedero correcto esté conectado.",
+  "walletNotConnected": "Conecta tu monedero para continuar.",
+  "tooManyRequests": "Hay demasiadas solicitudes en este momento. Espera un momento e inténtalo de nuevo.",
+  "validation": "Introduce una cantidad válida e inténtalo de nuevo.",
+  "encryption": "No se pudieron procesar los datos seguros. Inténtalo de nuevo.",
+  "programNotInitialized": "No pudimos conectar con Dropsome en esta red. Comprueba la configuración de red o de RPC e inténtalo de nuevo.",
+  "invalidAccount": "La cuenta proporcionada no es válida.",
+  "walletConnectionFailed": "No se pudo conectar el monedero. Inténtalo de nuevo.",
+  "http400": "Solicitud incorrecta. Comprueba los datos introducidos.",
+  "http401": "No tienes autorización. Vuelve a conectar tu monedero.",
+  "http403": "Acceso denegado.",
+  "http404": "Recurso no encontrado.",
+  "http500": "Error del servidor. Inténtalo más tarde.",
+  "solanaError": "Error de la red Solana. Inténtalo de nuevo.",
+  "networkError": "Error de red. Comprueba tu conexión.",
+  "unexpected": "Algo salió mal. Inténtalo de nuevo."
+}

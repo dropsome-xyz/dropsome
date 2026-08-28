@@ -1,9 +1,10 @@
-
 import { FC } from "react";
 import { Refund } from '../../components/Refund';
 import { Logo } from '../../components/Logo';
+import { useTranslation } from "react-i18next";
 
 export const RefundView: FC = ({ }) => {
+    const { t } = useTranslation('refund');
 
   return (
     <div className="md:hero mx-auto p-4">
@@ -12,7 +13,7 @@ export const RefundView: FC = ({ }) => {
           <Logo />
         </div>
         <h1 className="text-center text-5xl font-orbitron font-bold text-transparent bg-clip-text bg-gradient-to-br from-triton to-vortex m-4">
-          Refund Your Drop
+          {t('heading')}
         </h1>
         <div className="text-center">
           <Refund />

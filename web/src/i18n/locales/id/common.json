@@ -1,0 +1,45 @@
+{
+  "nav": { "drop": "Drop", "refund": "Kembalikan" },
+  "drawer": { "menu": "Menu" },
+  "settings": { "autoconnect": "Koneksi Otomatis" },
+  "network": { "label": "Jaringan", "customRpcUrl": "URL RPC Kustom", "custom": "Kustom" },
+  "footer": {
+    "documentation": "Dokumentasi",
+    "privacyPolicy": "Kebijakan Privasi",
+    "termsOfService": "Syarat Layanan"
+  },
+  "language": { "label": "Bahasa" },
+  "notification": { "close": "Tutup" },
+  "loader": { "waitingForApproval": "Menunggu persetujuan dompet..." },
+  "security": {
+    "title": "Tips Keamanan dan Keselamatan",
+    "readMore": "Pelajari lebih lanjut tentang keamanan",
+    "gotIt": "Mengerti",
+    "sender": {
+      "onboardingTitle": "Cocok untuk memulai.",
+      "onboardingBody": "Dropsome dirancang untuk transfer kecil agar membantu teman memulai dengan kripto.",
+      "shareTitle": "Bagikan tautan dengan aman.",
+      "shareBody": "Kirim tautan penerimaan hanya kepada orang yang dituju, sebaiknya melalui saluran pribadi dengan enkripsi ujung ke ujung.",
+      "cleanupTitle": "Rapikan setelah digunakan.",
+      "cleanupBody": "Setelah drop diterima atau dikembalikan, hapus tautan dari obrolan dan catatan agar tetap rapi.",
+      "refundTitle": "Opsi pengembalian tersedia.",
+      "refundBody": "Anda selalu dapat mengembalikan dana yang belum diterima dengan fitur pengembalian jika diperlukan."
+    },
+    "receiver": {
+      "welcomeTitle": "Selamat datang di dunia kripto!",
+      "welcomeBody": "Dompet ini adalah langkah awal Anda. Gunakan untuk menerima drop dan memulai perjalanan Anda.",
+      "ownWalletTitle": "Buat dompet Anda sendiri.",
+      "ownWalletBody": "Setelah menerima drop, buat dompet Solana baru dengan frasa pemulihan yang hanya Anda ketahui, lalu pindahkan SOL ke sana.",
+      "temporaryTitle": "Gunakan dompet ini sebagai dompet sementara.",
+      "temporaryBody": "Dompet ini dibuat untuk drop, jadi disarankan menggunakannya sementara dan memindahkan dana ke dompet pribadi Anda.",
+      "officialAppsTitle": "Gunakan aplikasi dompet resmi.",
+      "officialAppsBody": "Instal aplikasi dompet dari situs web resmi atau toko aplikasi. Selalu pastikan Anda menggunakan perangkat lunak resmi."
+    }
+  },
+  "alt": { "securityDisclaimer": "Penafian keamanan" },
+  "pages": {
+    "index": { "title": "Kirim SOL kepada seseorang tanpa dompet" },
+    "claim": { "title": "Terima drop Anda" },
+    "refund": { "title": "Kembalikan drop Anda" }
+  }
+}

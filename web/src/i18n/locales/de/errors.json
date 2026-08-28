@@ -1,0 +1,20 @@
+{
+  "userRejected": "Transaktion abgebrochen – nichts wurde gesendet.",
+  "insufficientFunds": "Ihr Wallet benötigt mehr SOL für den Drop und die Netzwerkgebühr.",
+  "accountNotFound": "Wir konnten dieses Wallet-Konto nicht finden. Prüfen Sie, ob das richtige Wallet verbunden ist.",
+  "walletNotConnected": "Bitte verbinden Sie Ihr Wallet, um fortzufahren.",
+  "tooManyRequests": "Zu viele Anfragen auf einmal. Warten Sie einen Moment und versuchen Sie es erneut.",
+  "validation": "Geben Sie einen gültigen Betrag ein und versuchen Sie es erneut.",
+  "encryption": "Sichere Daten konnten nicht verarbeitet werden. Bitte versuchen Sie es erneut.",
+  "programNotInitialized": "Wir konnten keine Verbindung zu Dropsome in diesem Netzwerk herstellen. Prüfen Sie Ihre Netzwerk- oder RPC-Einstellungen und versuchen Sie es erneut.",
+  "invalidAccount": "Ungültiges Konto angegeben.",
+  "walletConnectionFailed": "Wallet konnte nicht verbunden werden. Bitte versuchen Sie es erneut.",
+  "http400": "Ungültige Anfrage. Bitte prüfen Sie Ihre Eingabe.",
+  "http401": "Nicht autorisiert. Bitte verbinden Sie Ihr Wallet erneut.",
+  "http403": "Zugriff verweigert.",
+  "http404": "Ressource nicht gefunden.",
+  "http500": "Serverfehler. Bitte versuchen Sie es später erneut.",
+  "solanaError": "Solana-Netzwerkfehler. Bitte versuchen Sie es erneut.",
+  "networkError": "Netzwerkfehler. Bitte prüfen Sie Ihre Verbindung.",
+  "unexpected": "Etwas ist schiefgelaufen. Bitte versuchen Sie es erneut."
+}

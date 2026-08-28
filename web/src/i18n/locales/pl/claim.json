@@ -1,0 +1,26 @@
+{
+  "heading": "Odbierz swój drop",
+  "subtitle": "Zaledwie kilka prostych kroków, by odebrać swoje SOL!",
+  "getWalletTitle": "Zainstaluj portfel",
+  "installInstruction": "Zainstaluj aplikację portfela do zarządzania swoimi SOL:",
+  "walletPhantom": "Portfel Phantom",
+  "walletSolflare": "Portfel Solflare",
+  "walletBackpack": "Portfel Backpack",
+  "importPhraseTitle": "Wprowadź frazę odzyskiwania",
+  "importPhraseBody": "Otwórz aplikację portfela, wybierz \"Importuj portfel\" i wpisz frazę odzyskiwania pokazaną poniżej.",
+  "completeTitle": "Odbierz swoje SOL",
+  "completeBody": "Wróć do tego linku, połącz portfel utworzony z tej frazy i zatwierdź odebranie. Inny portfel nie może odebrać tego dropu.",
+  "phraseHeading": "Fraza odzyskiwania dla tego dropu",
+  "noRecord": "Nie znaleziono aktywnego dropu dla tego portfela. Sprawdź, czy fraza z tego linku została zaimportowana, albo drop mógł zostać już odebrany.",
+  "toast": {
+    "missingDataMessage": "Brak danych do odebrania",
+    "loadFailed": "Nie udało się wczytać frazy odzyskiwania",
+    "success": "Drop odebrany pomyślnie",
+    "error": "Błąd podczas odbierania dropu!",
+    "unexpected": "Coś poszło nie tak. Spróbuj ponownie."
+  },
+  "phrase": {
+    "show": "Pokaż frazę",
+    "hide": "Ukryj frazę"
+  }
+}

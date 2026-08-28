@@ -1,5 +1,6 @@
 import { FC } from "react";
 import Link from "next/link";
+import { useTranslation } from "react-i18next";
 
 interface SenderDisclaimerDialogProps {
     isOpen: boolean;
@@ -7,6 +8,7 @@ interface SenderDisclaimerDialogProps {
 }
 
 export const SenderDisclaimerDialog: FC<SenderDisclaimerDialogProps> = ({ isOpen, onClose }) => {
+    const { t } = useTranslation('common');
     if (!isOpen) return null;
 
     return (
@@ -17,29 +19,29 @@ export const SenderDisclaimerDialog: FC<SenderDisclaimerDialogProps> = ({ isOpen
                 aria-modal="true"
                 aria-labelledby="disclaimer-title"
             >
-                <h3 id="disclaimer-title" className="text-lg font-medium text-nova mb-4 text-center">Security & Safety Tips</h3>
+                <h3 id="disclaimer-title" className="text-lg font-medium text-nova mb-4 text-center">{t('security.title')}</h3>
                 <div className="mb-4 space-y-2 text-sm text-slate-300 text-left">
                     <p>
-                        <strong className="text-nova">Perfect for onboarding.</strong> Dropsome is designed for small transfers to help friends get started with crypto.
+                        <strong className="text-nova">{t('security.sender.onboardingTitle')}</strong> {t('security.sender.onboardingBody')}
                     </p>
                     <p>
-                        <strong className="text-nova">Share links securely.</strong> Send the claim link only to the intended person, preferably over a private, end-to-end encrypted channel.
+                        <strong className="text-nova">{t('security.sender.shareTitle')}</strong> {t('security.sender.shareBody')}
                     </p>
                     <p>
-                        <strong className="text-nova">Clean up after use.</strong> After the drop is claimed or refunded, remove the link from chats and notes for good housekeeping.
+                        <strong className="text-nova">{t('security.sender.cleanupTitle')}</strong> {t('security.sender.cleanupBody')}
                     </p>
                     <p>
-                        <strong className="text-nova">Refund option available.</strong> You can always recover unclaimed funds using the refund feature if needed.
+                        <strong className="text-nova">{t('security.sender.refundTitle')}</strong> {t('security.sender.refundBody')}
                     </p>
                 </div>
                 <div className="mb-4 text-s text-slate-400 text-center">
-                    <Link 
-                        href="https://docs.dropsome.xyz/legal/security-disclaimer/" 
-                        target="_blank" 
+                    <Link
+                        href="https://docs.dropsome.xyz/legal/security-disclaimer/"
+                        target="_blank"
                         rel="noopener noreferrer"
                         className="text-vortex hover:text-nova underline"
                     >
-                        Read more about security
+                        {t('security.readMore')}
                     </Link>
                 </div>
                 <div className="flex justify-end">
@@ -47,7 +49,7 @@ export const SenderDisclaimerDialog: FC<SenderDisclaimerDialogProps> = ({ isOpen
                         className="px-4 py-2 bg-warning text-white rounded hover:bg-error font-medium"
                         onClick={onClose}
                     >
-                        Got it
+                        {t('security.gotIt')}
                     </button>
                 </div>
             </div>

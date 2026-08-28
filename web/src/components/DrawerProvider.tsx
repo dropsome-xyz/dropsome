@@ -11,7 +11,7 @@ interface DrawerContextProps {
   setIsOpen: (value: SetStateAction<boolean>) => void;
 }
 
-const DrawerContext = createContext<DrawerContextProps>(null);
+const DrawerContext = createContext<DrawerContextProps | null>(null);
 
 export const useDrawer = () => {
   const context = useContext(DrawerContext);

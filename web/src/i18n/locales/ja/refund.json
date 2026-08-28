@@ -1,0 +1,19 @@
+{
+  "heading": "Drop を返金する",
+  "subtitle": "未受領の資金を取り戻そう！",
+  "intro": "受け取り手がまだ Drop を受け取っていない場合、ここで返金できます。リストから未受領の Drop を選び、返金ボタンを押して SOL を取り戻してください。",
+  "listHeading": "未受領の Drop",
+  "empty": "未受領の Drop はありません",
+  "amountSol": "{{amount}} SOL",
+  "button": {
+    "refund": "返金",
+    "processing": "処理中...",
+    "connectWallet": "ウォレットが接続されていません",
+    "selectOne": "少なくとも 1 つの Drop を選択してください"
+  },
+  "toast": {
+    "success": "Drop の返金に成功しました！",
+    "error": "トランザクションの構築または署名中にエラーが発生しました！",
+    "unexpected": "エラーが発生しました。もう一度お試しください。"
+  }
+}

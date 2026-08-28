@@ -1,0 +1,20 @@
+{
+  "userRejected": "Transakcja anulowana — nic nie wysłano.",
+  "insufficientFunds": "Twój portfel potrzebuje więcej SOL na drop i opłatę sieciową.",
+  "accountNotFound": "Nie znaleziono tego konta portfela. Sprawdź, czy połączony jest właściwy portfel.",
+  "walletNotConnected": "Połącz portfel, by kontynuować.",
+  "tooManyRequests": "Zbyt wiele żądań w tej chwili. Poczekaj chwilę i spróbuj ponownie.",
+  "validation": "Wpisz poprawną kwotę i spróbuj ponownie.",
+  "encryption": "Nie udało się przetworzyć bezpiecznych danych. Spróbuj ponownie.",
+  "programNotInitialized": "Nie udało się połączyć z Dropsome w tej sieci. Sprawdź ustawienia sieci lub RPC i spróbuj ponownie.",
+  "invalidAccount": "Podano nieprawidłowe konto.",
+  "walletConnectionFailed": "Nie udało się połączyć portfela. Spróbuj ponownie.",
+  "http400": "Błędne żądanie. Sprawdź dane wejściowe.",
+  "http401": "Nieautoryzowane. Ponownie połącz portfel.",
+  "http403": "Dostęp zabroniony.",
+  "http404": "Nie znaleziono zasobu.",
+  "http500": "Błąd serwera. Spróbuj później.",
+  "solanaError": "Błąd sieci Solana. Spróbuj ponownie.",
+  "networkError": "Błąd sieci. Sprawdź połączenie.",
+  "unexpected": "Coś poszło nie tak. Spróbuj ponownie."
+}

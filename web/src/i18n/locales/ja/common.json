@@ -1,0 +1,45 @@
+{
+  "nav": { "drop": "Drop", "refund": "返金" },
+  "drawer": { "menu": "メニュー" },
+  "settings": { "autoconnect": "自動接続" },
+  "network": { "label": "ネットワーク", "customRpcUrl": "カスタム RPC URL", "custom": "カスタム" },
+  "footer": {
+    "documentation": "ドキュメント",
+    "privacyPolicy": "プライバシーポリシー",
+    "termsOfService": "利用規約"
+  },
+  "language": { "label": "言語" },
+  "notification": { "close": "閉じる" },
+  "loader": { "waitingForApproval": "ウォレットの承認を待機中..." },
+  "security": {
+    "title": "セキュリティと安全に関するヒント",
+    "readMore": "セキュリティについて詳しく見る",
+    "gotIt": "理解しました",
+    "sender": {
+      "onboardingTitle": "暗号資産の入り口に最適です。",
+      "onboardingBody": "Dropsome は少額送金向けに設計されており、友人が暗号資産を始める手助けになります。",
+      "shareTitle": "リンクを安全に共有しましょう。",
+      "shareBody": "受け取りリンクは意図した相手のみに、できればプライベートなエンドツーエンド暗号化チャネルで送信してください。",
+      "cleanupTitle": "使用後はクリーンアップしましょう。",
+      "cleanupBody": "Drop が受け取られたり返金されたりしたら、チャットやメモからリンクを完全に削除してください。",
+      "refundTitle": "返金機能を利用できます。",
+      "refundBody": "未受領の資金は、必要に応じて返金機能でいつでも取り戻せます。"
+    },
+    "receiver": {
+      "welcomeTitle": "暗号資産の世界へようこそ！",
+      "welcomeBody": "このウォレットがあなたの入り口です。Drop を受け取って、暗号資産を始めましょう。",
+      "ownWalletTitle": "自分のウォレットを作りましょう。",
+      "ownWalletBody": "受け取り後、リカバリーフレーズをあなただけが知る新しい Solana ウォレットを作成し、SOL をそこへ移動させてください。",
+      "temporaryTitle": "このウォレットは一時的なものとして扱ってください。",
+      "temporaryBody": "このウォレットは Drop 用に作成されたため、一時的に使用し、資金を個人のウォレットへ移動することを推奨します。",
+      "officialAppsTitle": "公式のウォレットアプリを使用してください。",
+      "officialAppsBody": "ウォレットアプリは公式サイトまたはアプリストアからインストールしてください。常に正規のソフトウェアを使用しているか確認してください。"
+    }
+  },
+  "alt": { "securityDisclaimer": "セキュリティに関する免責事項" },
+  "pages": {
+    "index": { "title": "ウォレットを持っていない相手に SOL を送る" },
+    "claim": { "title": "Drop を受け取る" },
+    "refund": { "title": "Drop を返金する" }
+  }
+}

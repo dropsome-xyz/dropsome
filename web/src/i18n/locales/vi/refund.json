@@ -1,0 +1,19 @@
+{
+  "heading": "Hoàn tiền Drop của bạn",
+  "subtitle": "Lấy lại số tiền chưa được nhận!",
+  "intro": "Nếu người nhận chưa nhận Drop, bạn có thể hoàn tiền tại đây. Chọn một Drop chưa được nhận từ danh sách và nhấn nút hoàn tiền để lấy lại SOL.",
+  "listHeading": "Các Drop chưa được nhận của bạn",
+  "empty": "Không có Drop chưa được nhận",
+  "amountSol": "{{amount}} SOL",
+  "button": {
+    "refund": "Hoàn tiền",
+    "processing": "Đang xử lý...",
+    "connectWallet": "Chưa kết nối ví",
+    "selectOne": "Chọn ít nhất một Drop"
+  },
+  "toast": {
+    "success": "Đã hoàn tiền Drop thành công!",
+    "error": "Lỗi khi tạo hoặc ký giao dịch!",
+    "unexpected": "Đã xảy ra lỗi. Vui lòng thử lại."
+  }
+}

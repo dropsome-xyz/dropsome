@@ -1,0 +1,33 @@
+{
+  "heading": "Dropnij trochę SOL",
+  "tagline": "Pomóż znajomemu rozpocząć przygodę z krypto!",
+  "intro": "Podaj kwotę SOL do wysłania. Odbiorca może odebrać drop później, nawet jeśli nie ma jeszcze portfela. Dropsome stworzy link do odebrania, z którego będzie mógł skorzystać, gdy będzie gotowy.",
+  "amountLabel": "Wpisz kwotę do dropnięcia",
+  "appFeePerDrop": "Opłata aplikacji: ",
+  "feeCharged": "Zostanie pobrana opłata: ",
+  "feeBelowThreshold": "< 0.0001 SOL",
+  "increaseAmount": "Zwiększ kwotę",
+  "decreaseAmount": "Zmniejsz kwotę",
+  "button": {
+    "submit": "Dropnij SOL",
+    "creating": "Tworzenie Twojego dropu...",
+    "connectWallet": "Połącz portfel",
+    "enterAmount": "Wpisz kwotę",
+    "belowMinimum": "Kwota poniżej minimum"
+  },
+  "link": {
+    "heading": "Udostępnij link do odebrania",
+    "copy": "Kopiuj link",
+    "copiedToast": "Link skopiowany do schowka",
+    "copyAlt": "Kopiuj link do odebrania",
+    "hideAlt": "Ukryj link do odebrania",
+    "warningTitle": "Nie zgub linku!",
+    "warningBody": "Środki zostały już wysłane, a ten link to Twój złoty bilet! Upewnij się, że link został skopiowany przed zamknięciem, albo odbiorca nie będzie mógł odebrać dropu. Jeśli go zgubisz, trzeba będzie zwrócić drop i zacząć od nowa.",
+    "closeAnyway": "Zamknij mimo to"
+  },
+  "toast": {
+    "success": "Pomyślnie wysłano środki!",
+    "error": "Błąd podczas wysyłania środków!",
+    "unexpected": "Coś poszło nie tak. Spróbuj ponownie."
+  }
+}

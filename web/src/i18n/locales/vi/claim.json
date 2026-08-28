@@ -1,0 +1,26 @@
+{
+  "heading": "Nhận Drop của bạn",
+  "subtitle": "Chỉ vài bước đơn giản để nhận SOL của bạn!",
+  "getWalletTitle": "Tạo ví",
+  "installInstruction": "Cài đặt ứng dụng ví để quản lý SOL của bạn:",
+  "walletPhantom": "Ví Phantom",
+  "walletSolflare": "Ví Solflare",
+  "walletBackpack": "Ví Backpack",
+  "importPhraseTitle": "Nhập cụm từ khôi phục",
+  "importPhraseBody": "Mở ứng dụng ví, chọn \"Nhập ví\" và nhập cụm từ khôi phục hiển thị bên dưới.",
+  "completeTitle": "Hoàn tất việc nhận Drop",
+  "completeBody": "Quay lại liên kết này, kết nối ví được tạo từ cụm từ này và xác nhận việc nhận Drop. Ví khác không thể nhận Drop này.",
+  "phraseHeading": "Cụm từ khôi phục cho Drop này",
+  "noRecord": "Không tìm thấy Drop đang hoạt động cho ví này. Hãy kiểm tra xem bạn đã nhập cụm từ từ liên kết này chưa, hoặc Drop có thể đã được nhận.",
+  "toast": {
+    "missingDataMessage": "Thiếu dữ liệu nhận",
+    "loadFailed": "Không thể tải cụm từ khôi phục",
+    "success": "Đã nhận Drop thành công",
+    "error": "Lỗi khi nhận Drop!",
+    "unexpected": "Đã xảy ra lỗi. Vui lòng thử lại."
+  },
+  "phrase": {
+    "show": "Hiện cụm từ",
+    "hide": "Ẩn cụm từ"
+  }
+}

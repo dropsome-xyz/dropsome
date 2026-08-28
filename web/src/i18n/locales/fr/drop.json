@@ -1,0 +1,33 @@
+{
+  "heading": "Envoyer des SOL",
+  "tagline": "Lancez quelqu'un dans l'univers des cryptomonnaies !",
+  "intro": "Saisissez le montant de SOL à envoyer. Le destinataire pourra récupérer le drop plus tard, même s'il n'a pas encore de portefeuille. Dropsome crée un lien de récupération qu'il pourra utiliser lorsqu'il sera prêt.",
+  "amountLabel": "Saisissez le montant du drop",
+  "appFeePerDrop": "Frais de l'application : ",
+  "feeCharged": "Frais prélevés : ",
+  "feeBelowThreshold": "< 0,0001 SOL",
+  "increaseAmount": "Augmenter le montant",
+  "decreaseAmount": "Diminuer le montant",
+  "button": {
+    "submit": "Envoyer des SOL",
+    "creating": "Création de votre drop...",
+    "connectWallet": "Connecter le portefeuille",
+    "enterAmount": "Saisissez un montant",
+    "belowMinimum": "Le montant est inférieur au minimum"
+  },
+  "link": {
+    "heading": "Partagez ce lien de récupération",
+    "copy": "Copier le lien",
+    "copiedToast": "Lien copié dans le presse-papiers",
+    "copyAlt": "Copier le lien de récupération",
+    "hideAlt": "Masquer le lien de récupération",
+    "warningTitle": "Ne perdez pas le lien !",
+    "warningBody": "Les fonds ont déjà été envoyés et ce lien est votre ticket en or ! Assurez-vous de l'avoir copié avant de fermer la page, sinon le destinataire ne pourra pas récupérer les fonds. Si vous l'avez perdu, vous devrez rembourser le drop et recommencer.",
+    "closeAnyway": "Fermer quand même"
+  },
+  "toast": {
+    "success": "Fonds envoyés avec succès !",
+    "error": "Erreur lors de l'envoi des fonds !",
+    "unexpected": "Une erreur s'est produite. Veuillez réessayer."
+  }
+}

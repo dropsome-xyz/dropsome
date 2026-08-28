@@ -1,0 +1,26 @@
+{
+  "heading": "Ihren Drop erhalten",
+  "subtitle": "In wenigen einfachen Schritten zu Ihren SOL!",
+  "getWalletTitle": "Wallet einrichten",
+  "installInstruction": "Installieren Sie eine Wallet-App, um Ihre SOL zu verwalten:",
+  "walletPhantom": "Phantom Wallet",
+  "walletSolflare": "Solflare Wallet",
+  "walletBackpack": "Backpack Wallet",
+  "importPhraseTitle": "Wiederherstellungsphrase importieren",
+  "importPhraseBody": "Öffnen Sie die Wallet-App, wählen Sie „Wallet importieren“ und geben Sie die unten angezeigte Wiederherstellungsphrase ein.",
+  "completeTitle": "Abholung abschließen",
+  "completeBody": "Kehren Sie zu diesem Link zurück, verbinden Sie das aus dieser Phrase erstellte Wallet und bestätigen Sie die Abholung. Ein anderes Wallet kann diesen Drop nicht abholen.",
+  "phraseHeading": "Ihre Wiederherstellungsphrase für diesen Drop",
+  "noRecord": "Wir konnten keinen aktiven Drop für dieses Wallet finden. Prüfen Sie, ob Sie die Phrase von diesem Link importiert haben, oder ob der Drop bereits abgeholt wurde.",
+  "toast": {
+    "missingDataMessage": "Abholdaten fehlen",
+    "loadFailed": "Die Wiederherstellungsphrase konnte nicht geladen werden",
+    "success": "Drop erfolgreich abgeholt",
+    "error": "Fehler beim Abholen des Drops!",
+    "unexpected": "Etwas ist schiefgelaufen. Bitte versuchen Sie es erneut."
+  },
+  "phrase": {
+    "show": "Phrase anzeigen",
+    "hide": "Phrase ausblenden"
+  }
+}
