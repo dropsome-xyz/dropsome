@@ -7,6 +7,7 @@ import { ContentContainer } from '../components/ContentContainer';
 import { Footer } from '../components/Footer';
 import Notifications from '../components/Notification';
 import { DrawerProvider } from '../components/DrawerProvider';
+import { appWithTranslation } from 'next-i18next/pages';
 require('@solana/wallet-adapter-react-ui/styles.css');
 require('../styles/globals.css');
 
@@ -73,4 +74,4 @@ const App: FC<AppProps> = ({ Component, pageProps }) => {
   );
 };
 
-export default App;
+export default appWithTranslation(App);

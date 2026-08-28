@@ -1,0 +1,22 @@
+{
+  "heading": "Claim Your Drop",
+  "subtitle": "Just a few easy steps to get your SOL!",
+  "getWalletTitle": "Get a Wallet",
+  "installInstruction": "Install a wallet app to manage your SOL:",
+  "walletPhantom": "Phantom Wallet",
+  "walletSolflare": "Solflare Wallet",
+  "walletBackpack": "Backpack Wallet",
+  "importPhraseTitle": "Import the recovery phrase",
+  "importPhraseBody": "Open the wallet app, choose \"Import wallet,\" and enter the recovery phrase shown below.",
+  "completeTitle": "Complete the Claim",
+  "completeBody": "Return to this link, connect the wallet created from this phrase, and approve the claim. A different wallet cannot claim this drop.",
+  "phraseHeading": "Your recovery phrase for this drop",
+  "noRecord": "We couldn't find an active drop for this wallet. Check that you imported the phrase from this link, or the drop may already have been claimed.",
+  "toast": {
+    "missingDataMessage": "Missing claim data",
+    "loadFailed": "We couldn't load the recovery phrase",
+    "success": "Drop claimed successfully",
+    "error": "Error while claiming drop!",
+    "unexpected": "Something went wrong. Please try again."
+  }
+}

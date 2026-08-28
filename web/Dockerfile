@@ -1,15 +1,15 @@
-FROM node:12-alpine
+FROM node:22-alpine
 
 WORKDIR /opt/app
 
-ENV NODE_ENV production
+COPY package.json yarn.lock ./
 
-COPY package*.json ./
-
-RUN npm ci 
+RUN yarn install --frozen-lockfile
 
 COPY . /opt/app
 
-RUN npm install --dev && npm run build
+ENV NODE_ENV production
 
-CMD [ "npm", "start" ]
+RUN yarn build
+
+CMD [ "yarn", "start" ]

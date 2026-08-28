@@ -46,8 +46,9 @@ const NavElement = ({
             passHref
             className={cn(
                 'group flex h-full flex-col items-center justify-between',
-                disabled &&
-                'pointer-events-none cursor-not-allowed opacity-50',
+                disabled
+                    ? 'pointer-events-none cursor-not-allowed opacity-50'
+                    : '',
             )}
             onClick={() => navigationStarts()}
         >

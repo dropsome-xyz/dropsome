@@ -1,0 +1,20 @@
+{
+  "userRejected": "Transaction cancelled — nothing was sent.",
+  "insufficientFunds": "Your wallet needs more SOL for the drop and network fee.",
+  "accountNotFound": "We couldn't find that wallet account. Check that the correct wallet is connected.",
+  "walletNotConnected": "Please connect your wallet to continue.",
+  "tooManyRequests": "Too many requests right now. Wait a moment, then try again.",
+  "validation": "Enter a valid amount and try again.",
+  "encryption": "Failed to process secure data. Please try again.",
+  "programNotInitialized": "We couldn't connect to Dropsome on this network. Check your network or RPC settings and try again.",
+  "invalidAccount": "Invalid account provided.",
+  "walletConnectionFailed": "Failed to connect wallet. Please try again.",
+  "http400": "Bad request. Please check your input.",
+  "http401": "Unauthorized. Please reconnect your wallet.",
+  "http403": "Access denied.",
+  "http404": "Resource not found.",
+  "http500": "Server error. Please try again later.",
+  "solanaError": "Solana network error. Please try again.",
+  "networkError": "Network error. Please check your connection.",
+  "unexpected": "Something went wrong. Please try again."
+}

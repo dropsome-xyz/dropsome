@@ -5,7 +5,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        orbitron: ["Orbitron", "sans-serif"],
+        orbitron: ["Orbitron", "Tektur", "sans-serif"],
       },
       colors: {
         abyss: "#011830",

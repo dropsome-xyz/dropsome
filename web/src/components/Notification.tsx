@@ -9,6 +9,7 @@ import useNotificationStore from "../stores/useNotificationStore";
 import { useConnection } from "@solana/wallet-adapter-react";
 import { getExplorerUrl } from "../utils/explorer";
 import { useNetworkConfiguration } from "../contexts/NetworkConfigurationProvider";
+import { useTranslation } from "react-i18next";
 
 const NotificationList = () => {
   const { notifications, set: setNotificationStore } = useNotificationStore(
@@ -44,8 +45,8 @@ const NotificationList = () => {
     </div>
   );
 };
-
 const Notification = ({ type, message, description, txid, onHide }) => {
+  const { t } = useTranslation('common');
   const { connection } = useConnection();
   const { networkConfiguration } = useNetworkConfiguration();
 
@@ -124,7 +125,7 @@ const Notification = ({ type, message, description, txid, onHide }) => {
               onClick={() => onHide()}
               className={`bg-bkg-2 default-transition rounded-md inline-flex text-fgd-3 hover:text-fgd-4 focus:outline-none`}
             >
-              <span className={`sr-only`}>Close</span>
+              <span className={`sr-only`}>{t('notification.close')}</span>
               <XIcon className="h-5 w-5" />
             </button>
           </div>

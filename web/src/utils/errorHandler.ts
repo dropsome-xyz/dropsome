@@ -1,7 +1,7 @@
 export interface AppError {
     code: string;
-    message: string;
-    details?: string;
+    params?: Record<string, unknown>;
+    details?: string;   // English diagnostic — console/telemetry ONLY, never rendered
     timestamp: string;
     context?: Record<string, any>;
 }
@@ -11,7 +11,7 @@ export class ErrorHandler {
         if (process.env.NODE_ENV === 'development') {
             console.error('Application Error:', error);
         }
-        
+
         if (process.env.NODE_ENV === 'production') {
             // TODO: Implement production logging
             console.error('Production Error:', error);
@@ -19,73 +19,65 @@ export class ErrorHandler {
     }
 
     static createError(
-        code: string, 
-        message: string, 
-        details?: string, 
+        code: string,
+        params?: Record<string, unknown>,
+        details?: string,
         context?: Record<string, any>
     ): AppError {
         const error: AppError = {
             code,
-            message,
+            params,
             details,
             timestamp: new Date().toISOString(),
             context
         };
-        
+
         this.logError(error);
         return error;
     }
 
     static handleApiError(error: any, context?: string): AppError {
         let code = 'UNKNOWN_ERROR';
-        let message = 'Something went wrong. Please try again.';
-        let details = error?.message || 'No additional details available';
+        let params: Record<string, unknown> | undefined;
+        const details = error?.message || 'No additional details available';
 
         if (error?.response?.status) {
             code = `HTTP_${error.response.status}`;
-            message = `Request failed with status ${error.response.status}`;
+            params = { status: error.response.status };
         } else if (error?.code) {
             code = error.code;
-            message = error.message || message;
-        } else if (error?.message) {
-            message = error.message;
         }
 
-        return this.createError(code, message, details, { 
+        return this.createError(code, params, details, {
             originalError: error,
-            context 
+            context
         });
     }
 
     static handleSolanaError(error: any, operation?: string): AppError {
         let code = 'SOLANA_ERROR';
-        let message = 'Solana operation failed';
-        let details = error?.message || 'No additional details available';
+        const details = error?.message || 'No additional details available';
 
         if (error?.message?.includes('User rejected')) {
             code = 'USER_REJECTED';
-            message = 'Transaction was rejected by user';
         } else if (error?.message?.includes('Insufficient funds')) {
             code = 'INSUFFICIENT_FUNDS';
-            message = 'Insufficient funds for transaction';
         } else if (error?.message?.includes('Account not found')) {
             code = 'ACCOUNT_NOT_FOUND';
-            message = 'Account not found';
         } else if (error?.message?.includes('Invalid account')) {
             code = 'INVALID_ACCOUNT';
-            message = 'Invalid account provided';
         }
 
-        return this.createError(code, message, details, { 
+        return this.createError(code, undefined, details, {
             operation,
-            originalError: error 
+            originalError: error
         });
     }
 
     static handleValidationError(field: string, value: any, rule: string): AppError {
         return this.createError(
             'VALIDATION_ERROR',
-            `Validation failed for ${field}`,
+            { field, rule },
             `Value "${value}" does not meet requirement: ${rule}`,
             { field, value, rule }
         );
@@ -94,7 +86,7 @@ export class ErrorHandler {
     static handleEncryptionError(error: any, operation: 'encrypt' | 'decrypt'): AppError {
         return this.createError(
             'ENCRYPTION_ERROR',
-            `Failed to ${operation} data`,
+            { operation },
             error?.message || 'Encryption/decryption operation failed',
             { operation, originalError: error }
         );
@@ -105,22 +97,22 @@ export enum ErrorCodes {
     UNKNOWN_ERROR = 'UNKNOWN_ERROR',
     NETWORK_ERROR = 'NETWORK_ERROR',
     VALIDATION_ERROR = 'VALIDATION_ERROR',
-    
+
     SOLANA_ERROR = 'SOLANA_ERROR',
     USER_REJECTED = 'USER_REJECTED',
     INSUFFICIENT_FUNDS = 'INSUFFICIENT_FUNDS',
     ACCOUNT_NOT_FOUND = 'ACCOUNT_NOT_FOUND',
     INVALID_ACCOUNT = 'INVALID_ACCOUNT',
-    
+
     HTTP_400 = 'HTTP_400',
     HTTP_401 = 'HTTP_401',
     HTTP_403 = 'HTTP_403',
     HTTP_404 = 'HTTP_404',
     HTTP_429 = 'HTTP_429',
     HTTP_500 = 'HTTP_500',
-    
+
     ENCRYPTION_ERROR = 'ENCRYPTION_ERROR',
-    
+
     WALLET_NOT_CONNECTED = 'WALLET_NOT_CONNECTED',
     WALLET_CONNECTION_FAILED = 'WALLET_CONNECTION_FAILED',
     PROGRAM_NOT_INITIALIZED = 'PROGRAM_NOT_INITIALIZED',
@@ -132,23 +124,8 @@ export function isRetryableError(error: AppError): boolean {
         ErrorCodes.HTTP_500,
         ErrorCodes.SOLANA_ERROR
     ];
-    
-    return retryableCodes.includes(error.code as ErrorCodes);
-}
 
-export function getUserFriendlyMessage(error: AppError): string {
-    const friendlyMessages: Record<string, string> = {
-        [ErrorCodes.USER_REJECTED]: 'Transaction cancelled — nothing was sent.',
-        [ErrorCodes.INSUFFICIENT_FUNDS]: 'Your wallet needs more SOL for the drop and network fee.',
-        [ErrorCodes.ACCOUNT_NOT_FOUND]: 'We couldn\'t find that wallet account. Check that the correct wallet is connected.',
-        [ErrorCodes.WALLET_NOT_CONNECTED]: 'Please connect your wallet to continue.',
-        [ErrorCodes.HTTP_429]: 'Too many requests right now. Wait a moment, then try again.',
-        [ErrorCodes.VALIDATION_ERROR]: 'Enter a valid amount and try again.',
-        [ErrorCodes.ENCRYPTION_ERROR]: 'Failed to process secure data. Please try again.',
-        [ErrorCodes.PROGRAM_NOT_INITIALIZED]: 'We couldn\'t connect to Dropsome on this network. Check your network or RPC settings and try again.',
-    };
-    
-    return friendlyMessages[error.code] || error.message;
+    return retryableCodes.includes(error.code as ErrorCodes);
 }
 
 /**
@@ -159,30 +136,7 @@ export function isAppError(error: unknown): error is AppError {
         typeof error === 'object' &&
         error !== null &&
         'code' in error &&
-        'message' in error &&
         'timestamp' in error
     );
 }
 
-/**
- * Type guard to check if an error is an Error object
- */
-export function isError(error: unknown): error is Error {
-    return error instanceof Error;
-}
-
-/**
- * Safely access error properties
- */
-export function getErrorMessage(error: unknown): string {
-    if (isAppError(error)) {
-        return error.message;
-    }
-    if (isError(error)) {
-        return error.message;
-    }
-    if (typeof error === 'string') {
-        return error;
-    }
-    return 'Something went wrong. Please try again.';
-}

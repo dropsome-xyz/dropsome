@@ -1,15 +1,18 @@
 import { useConnection, useWallet } from "@solana/wallet-adapter-react";
 import { FC, useCallback, useState, useEffect, useRef, useMemo } from "react";
+import { useTranslation } from "react-i18next";
 import { notify } from "../utils/notifications";
 import { Program, AnchorProvider, web3, BN, setProvider, utils } from "@anchor-lang/core";
 import { SignActionLoader } from "./SignActionLoader";
 import { SenderDisclaimerDialog } from "./SenderDisclaimerDialog";
-import { ErrorHandler, ErrorCodes, getUserFriendlyMessage, isAppError } from "../utils/errorHandler";
+import { ErrorHandler, ErrorCodes, isAppError } from "../utils/errorHandler";
+import { useErrorMessage } from "../hooks/useErrorMessage";
 import { IDL_OBJECT, getApiToken, getBaseUrl } from "../utils/constants";
 import { AppState } from "../types/appState";
 
 import { Dropsome } from "../idl/dropsome"
 import { PublicKey } from "@solana/web3.js";
+import type { AnchorWallet } from "../types/anchorWallet";
 import { ResponseData } from "../pages/api/drop/receiver";
 
 const FALLBACK_MIN_DROP_AMOUNT_LAMPORTS = 1000000;
@@ -17,6 +20,8 @@ const FALLBACK_MIN_DROP_AMOUNT_LAMPORTS = 1000000;
 export const Drop: FC = () => {
     const connectedWallet = useWallet();
     const { connection } = useConnection();
+    const { t } = useTranslation(['drop', 'common']);
+    const errorMessage = useErrorMessage();
     const [amount, setAmount] = useState<number | null>(null);
     const [link, setLink] = useState("");
     const [signature, setSignature] = useState("");
@@ -28,7 +33,7 @@ export const Drop: FC = () => {
 
     const getProvider = useMemo(() => {
         if (!connectedWallet.connected) return null;
-        const provider = new AnchorProvider(connection, connectedWallet, AnchorProvider.defaultOptions());
+        const provider = new AnchorProvider(connection, connectedWallet as unknown as AnchorWallet, AnchorProvider.defaultOptions());
         setProvider(provider);
         return provider;
     }, [connection, connectedWallet]);
@@ -100,15 +105,15 @@ export const Drop: FC = () => {
             setIsLoading(true);
 
             if (!connectedWallet.connected) {
-                throw ErrorHandler.createError(ErrorCodes.WALLET_NOT_CONNECTED, "Wallet not connected!");
+                throw ErrorHandler.createError(ErrorCodes.WALLET_NOT_CONNECTED);
             }
 
             if (!getProvider) {
-                throw ErrorHandler.createError(ErrorCodes.WALLET_NOT_CONNECTED, "Provider not initialized!");
+                throw ErrorHandler.createError(ErrorCodes.WALLET_NOT_CONNECTED);
             }
 
             if (!program) {
-                throw ErrorHandler.createError(ErrorCodes.PROGRAM_NOT_INITIALIZED, "Program instance not initialized!");
+                throw ErrorHandler.createError(ErrorCodes.PROGRAM_NOT_INITIALIZED);
             }
 
             const minDropAmount = appState?.minDropAmount ?? FALLBACK_MIN_DROP_AMOUNT_LAMPORTS;
@@ -120,10 +125,10 @@ export const Drop: FC = () => {
                 );
             }
             if (!appState) {
-                throw ErrorHandler.createError(ErrorCodes.UNKNOWN_ERROR, "App state not loaded!");
+                throw ErrorHandler.createError(ErrorCodes.UNKNOWN_ERROR);
             }
             if (!appState.treasury) {
-                throw ErrorHandler.createError(ErrorCodes.UNKNOWN_ERROR, "Treasury address not found in app state!");
+                throw ErrorHandler.createError(ErrorCodes.UNKNOWN_ERROR);
             }
 
             console.log(`Trying to drop ${amount} SOL`);
@@ -147,33 +152,22 @@ export const Drop: FC = () => {
                 .rpc();
             setSignature(txid);
 
-            notify({ type: "success", message: "Successfully dropped some funds!", txid: txid });
+            notify({ type: "success", message: t('toast.success'), txid: txid });
             console.log(`Successfully dropped some funds: ${txid}`)
         } catch (error) {
             setSignature("");
 
-            let errorMessage = "Error while dropping funds!";
-            let errorDescription = "Something went wrong. Please try again.";
-
-            if (isAppError(error)) {
-                errorMessage = getUserFriendlyMessage(error);
-                errorDescription = error.details || error.message;
-            } else {
-                const solanaError = ErrorHandler.handleSolanaError(error, 'drop');
-                errorMessage = getUserFriendlyMessage(solanaError);
-                errorDescription = solanaError.details || solanaError.message;
-            }
+            const appError = isAppError(error) ? error : ErrorHandler.handleSolanaError(error, 'drop');
 
             notify({
                 type: "error",
-                message: errorMessage,
-                description: errorDescription
+                message: errorMessage(appError)
             });
             console.error("Error while dropping funds:", error);
         } finally {
             setIsLoading(false);
         }
-    }, [connectedWallet.connected, amount, appState, getProvider, program]);
+    }, [connectedWallet.connected, amount, appState, getProvider, program, t, errorMessage]);
 
     const onClick = useCallback(async () => {
         if (isLoading) return;
@@ -208,10 +202,10 @@ export const Drop: FC = () => {
             <div className="md:hero-content flex flex-col items-center">
                 {/* Header */}
                 <h4 className="md:w-full text-2x1 md:text-4xl text-center text-slate-300 my-2">
-                    <p>Kickstart someone&apos;s crypto journey!</p>
-                    <p className='text-slate-500 text-2x1 leading-relaxed'>Enter the amount of SOL to send. The recipient can claim the drop later, even if they do not have a wallet yet. Dropsome creates a claim link they can use when they are ready.</p>
+                    <p>{t('tagline')}</p>
+                    <p className='text-slate-500 text-2x1 leading-relaxed'>{t('intro')}</p>
                 </h4>
-                <h2 className="text-2xl font-bold text-nova">Enter Amount to Drop</h2>
+                <h2 className="text-2xl font-bold text-nova">{t('amountLabel')}</h2>
 
                 {/* Amount Input */}
                 <div className="relative group w-60 m-2 custom-number-input font-orbitron">
@@ -233,7 +227,7 @@ export const Drop: FC = () => {
                             className="text-vortex hover:text-fuchsia-300 text-lg leading-none p-0.5"
                             onClick={() => setAmount(prev => (prev !== null ? +(prev + 1).toFixed(2) : 1))}
                             tabIndex={-1}
-                            aria-label="Increase amount"
+                            aria-label={t('increaseAmount')}
                             disabled={isLoading}
                         >
                             ▵
@@ -243,7 +237,7 @@ export const Drop: FC = () => {
                             className="text-vortex hover:text-fuchsia-300 text-lg leading-none p-0.5"
                             onClick={() => setAmount(prev => (prev !== null && prev > 1 ? +(prev - 1).toFixed(2) : 0))}
                             tabIndex={-1}
-                            aria-label="Decrease amount"
+                            aria-label={t('decreaseAmount')}
                             disabled={isLoading}
                         >
                             ▿
@@ -254,20 +248,23 @@ export const Drop: FC = () => {
                 {/* Fee Info Block */}
                 <div className="w-60 m-2 p-3 bg-slate-800/50 border border-slate-600 rounded-lg">
                     <div className="text-sm text-slate-400 mb-2">
-                        App fee: {appState?.feeBasisPoints !== undefined && appState?.feeBasisPoints !== null ? <span className="text-nova font-medium">{(appState.feeBasisPoints / 100).toFixed(2)}%</span> : '...'} per drop
+                        {t('appFeePerDrop')}
+                        {appState?.feeBasisPoints !== undefined && appState?.feeBasisPoints !== null ? (
+                            <span className="text-nova font-medium">{(appState.feeBasisPoints / 100).toFixed(2)}%</span>
+                        ) : (
+                            <span className="text-nova font-medium">...</span>
+                        )}
                     </div>
                     {amount && appState?.feeBasisPoints !== undefined && appState?.feeBasisPoints !== null && (
-                        <div className="text-xs flex justify-evenly items-center">
-                            <span className="text-slate-400">Fee charged:</span>
-                            <span className="text-nova font-medium">
-                                {(() => {
-                                    const fee = amount * appState.feeBasisPoints / 10000;
-                                    if (fee > 0 && fee < 0.0001) {
-                                        return '< 0.0001 SOL';
-                                    }
-                                    return `${parseFloat(fee.toFixed(4)).toString()} SOL`;
-                                })()}
-                            </span>
+                        <div className="text-sm flex justify-evenly items-center">
+                            <span className="text-slate-400">{t('feeCharged')}</span>
+                            {(() => {
+                                const fee = amount * appState!.feeBasisPoints / 10000;
+                                if (fee > 0 && fee < 0.0001) {
+                                    return <span className="text-nova font-medium">{t('feeBelowThreshold')}</span>;
+                                }
+                                return <span className="text-nova font-medium">{parseFloat(fee.toFixed(4)).toString()} SOL</span>;
+                            })()}
                         </div>
                     )}
                 </div>
@@ -287,15 +284,15 @@ export const Drop: FC = () => {
                     >
                         <div className="hidden group-disabled:block text-white/35">
                             {isLoading
-                                ? "Creating your drop..."
+                                ? t('button.creating')
                                 : !connectedWallet.connected
-                                ? "Connect wallet"
+                                ? t('button.connectWallet')
                                 : !amount
-                                ? "Enter an amount"
-                                : "Amount is below the minimum"}
+                                ? t('button.enterAmount')
+                                : t('button.belowMinimum')}
                         </div>
                         <span className="block group-disabled:hidden" >
-                            Drop
+                            {t('button.submit')}
                         </span>
                     </button>
                 </div>
@@ -303,30 +300,30 @@ export const Drop: FC = () => {
 
                 {/* Claim Link */}
                 {(signature && connectedWallet.connected) && (<div>
-                    <h2 className="text-2xl font-bold mb-4 text-nova">Share this claim link</h2>
-                    <div className="relative group">
+                    <h2 className="text-2xl font-bold mb-4 text-nova">{t('link.heading')}</h2>
+                    <div className="relative group max-w-xs max-sm:max-w-[280px] mx-auto">
                         <div className="absolute -inset-0.5 bg-gradient-to-r from-vortex to-vortex rounded-lg blur opacity-40 animate-tilt" />
-                        <div className="relative max-w-xs max-sm:max-w-[280px] mx-auto textarea textarea-primary textarea-lg bg-primary border-2 border-[#5252529f] p-8 px-10 my-2 text-start">
+                        <div className="relative w-full textarea textarea-primary textarea-lg bg-primary border-2 border-[#5252529f] p-8 px-10 my-2 text-start">
                             <p className="break-words">{link}</p>
                             <button
                                 onClick={() => setIsDisclaimerShown(true)}
                                 className="absolute top-2 left-2 p-0 bg-transparent border-none cursor-pointer" >
-                                <img src="/security_tip.svg" alt="Security disclaimer" width={20}  height={20} />
+                                <img src="/security_tip.svg" alt={t('common:alt.securityDisclaimer')} width={20}  height={20} />
                             </button>
                             <button
                                 onClick={() => {
                                     navigator.clipboard.writeText(link);
-                                    notify({ type: "success", message: "Link copied to clipboard" });
+                                    notify({ type: "success", message: t('link.copiedToast') });
                                 }}
                                 className="absolute top-2 right-2 p-0 bg-transparent border-none cursor-pointer">
-                                <img src="/content_copy.svg" alt="Copy the claim link" width={20} height={20} />
+                                <img src="/content_copy.svg" alt={t('link.copyAlt')} width={20} height={20} />
                             </button>
                             <button
                                 onClick={() => {
                                     setIsDialogShown(true)
                                 }}
                                 className="absolute bottom-2 right-2 p-0 bg-transparent border-none cursor-pointer">
-                                <img src="/cancel.svg" alt="Hide the claim link" width={20} height={20} />
+                                <img src="/cancel.svg" alt={t('link.hideAlt')} width={20} height={20} />
                             </button>
                         </div>
                     </div>
@@ -343,31 +340,31 @@ export const Drop: FC = () => {
                         aria-modal="true"
                         aria-labelledby="dialog-title"
                     >
-                        <h3 id="dialog-title" className="text-lg font-medium text-nova mb-2">Don&apos;t Lose the Link!</h3>
+                        <h3 id="dialog-title" className="text-lg font-medium text-nova mb-2">{t('link.warningTitle')}</h3>
                         <p className="mb-4">
-                            The funds are already dropped, and this link is your golden ticket! Make sure you&apos;ve copied it before closing, or the receiver won&apos;t be able to claim. If you missed it, you&apos;ll need to refund the drop and start over.
+                            {t('link.warningBody')}
                         </p>
                         <div className="flex justify-end space-x-2">
                             <button
                                 className="px-4 py-2 text-accent hover:text-secondary font-medium text-vortex"
                                 onClick={() => handleDialogAction(false)}
                             >
-                                Copy Link
+                                {t('link.copy')}
                             </button>
                             <button
                                 className="px-4 py-2 bg-warning text-white rounded hover:bg-error font-medium"
                                 onClick={() => handleDialogAction(true)}
                             >
-                                Close Anyway
+                                {t('link.closeAnyway')}
                             </button>
                         </div>
                     </div>
                 </div>
             )}
 
-            <SenderDisclaimerDialog 
-                isOpen={isDisclaimerShown} 
-                onClose={() => setIsDisclaimerShown(false)} 
+            <SenderDisclaimerDialog
+                isOpen={isDisclaimerShown}
+                onClose={() => setIsDisclaimerShown(false)}
             />
         </div>
     );

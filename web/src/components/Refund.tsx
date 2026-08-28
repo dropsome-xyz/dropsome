@@ -1,15 +1,17 @@
 import { useConnection, useWallet } from "@solana/wallet-adapter-react";
 import { FC, useCallback, useEffect, useState, useRef, useMemo } from "react";
+import { useTranslation } from "react-i18next";
 import { notify } from "../utils/notifications";
 import { Program, AnchorProvider, setProvider } from "@anchor-lang/core";
 import { SignActionLoader } from "./SignActionLoader";
-import { ErrorHandler, ErrorCodes, getUserFriendlyMessage, isAppError } from "../utils/errorHandler";
+import { ErrorHandler, ErrorCodes, isAppError } from "../utils/errorHandler";
+import { useErrorMessage } from "../hooks/useErrorMessage";
 import { IDL_OBJECT } from "../utils/constants";
 
 import { Dropsome } from "../idl/dropsome";
 import { Commitment, LAMPORTS_PER_SOL, Transaction } from "@solana/web3.js";
 import { Record } from "../types/record";
-
+import type { AnchorWallet } from "../types/anchorWallet";
 const COMMITMENT_LEVEL: Commitment = "processed";
 const RPC_RATE_LIMIT_DELAY_MS = 120;
 const CONFIRMATION_POLL_INTERVAL_MS = 1000;
@@ -20,17 +22,18 @@ const delay = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
 export const Refund: FC = () => {
   const connectedWallet = useWallet();
   const { connection } = useConnection();
+  const { t } = useTranslation('refund');
+  const errorMessage = useErrorMessage();
   const [activeDrops, setActiveDrops] = useState<Record[]>([]);
   const [selectedDrops, setSelectedDrops] = useState<Record[]>([]);
   const [isLoading, setIsLoading] = useState(false);
   const isFetchingRef = useRef(false);
   const confirmOptions = { preflightCommitment: COMMITMENT_LEVEL, commitment: COMMITMENT_LEVEL };
-
   const getProvider = useMemo(() => {
     if (!connectedWallet.connected) return null;
     const provider = new AnchorProvider(
       connection,
-      connectedWallet,
+      connectedWallet as unknown as AnchorWallet,
       confirmOptions,
     );
     setProvider(provider);
@@ -63,13 +66,12 @@ export const Refund: FC = () => {
       const solanaError = ErrorHandler.handleSolanaError(error, 'fetchDropRecords');
       notify({
         type: "error",
-        message: getUserFriendlyMessage(solanaError),
-        description: solanaError.details || solanaError.message
+        message: errorMessage(solanaError)
       });
     } finally {
       isFetchingRef.current = false;
     }
-  }, [connectedWallet.connected, getProvider, program]);
+  }, [connectedWallet.connected, getProvider, program, errorMessage]);
 
   useEffect(() => {
     if (connectedWallet.connected) {
@@ -87,15 +89,15 @@ export const Refund: FC = () => {
       setIsLoading(true);
 
       if (!connectedWallet.connected) {
-        throw ErrorHandler.createError(ErrorCodes.WALLET_NOT_CONNECTED, "Wallet not connected!");
+        throw ErrorHandler.createError(ErrorCodes.WALLET_NOT_CONNECTED);
       }
 
       if (!getProvider) {
-        throw ErrorHandler.createError(ErrorCodes.WALLET_NOT_CONNECTED, "Provider not initialized!");
+        throw ErrorHandler.createError(ErrorCodes.WALLET_NOT_CONNECTED);
       }
 
       if (!program) {
-        throw ErrorHandler.createError(ErrorCodes.PROGRAM_NOT_INITIALIZED, "Program instance not initialized!");
+        throw ErrorHandler.createError(ErrorCodes.PROGRAM_NOT_INITIALIZED);
       }
 
       const { blockhash, lastValidBlockHeight } = await getProvider.connection.getLatestBlockhash(COMMITMENT_LEVEL);
@@ -117,6 +119,9 @@ export const Refund: FC = () => {
         transactions.push(tx);
       }
 
+      if (!connectedWallet.signAllTransactions) {
+        throw ErrorHandler.createError(ErrorCodes.UNKNOWN_ERROR);
+      }
       const signedTxs = await connectedWallet.signAllTransactions(transactions);
       const signatures: string[] = [];
       const signatureToRecordPubkey = new Map<string, string>();
@@ -142,8 +147,7 @@ export const Refund: FC = () => {
           const solanaError = ErrorHandler.handleSolanaError(error, 'sendRawTransaction');
           notify({
             type: "error",
-            message: getUserFriendlyMessage(solanaError),
-            description: solanaError.details || solanaError.message,
+            message: errorMessage(solanaError)
           });
           console.error("Error while refunding drop (sendRawTransaction):", error);
         }
@@ -172,8 +176,7 @@ export const Refund: FC = () => {
             );
             notify({
               type: "error",
-              message: getUserFriendlyMessage(solanaError),
-              description: solanaError.details || solanaError.message,
+              message: errorMessage(solanaError)
             });
             console.error("Refund transaction failed:", txid, info.err);
             return;
@@ -191,7 +194,7 @@ export const Refund: FC = () => {
             }
             notify({
               type: "success",
-              message: `Successfully refunded drop!`,
+              message: t('toast.success'),
               txid,
             });
             console.log("Successfully refunded drop:", txid, info);
@@ -210,8 +213,7 @@ export const Refund: FC = () => {
             );
             notify({
               type: "error",
-              message: getUserFriendlyMessage(solanaError),
-              description: solanaError.details || solanaError.message,
+              message: errorMessage(solanaError)
             });
             console.error("Refund transaction expired before confirmation:", txid);
           });
@@ -221,22 +223,11 @@ export const Refund: FC = () => {
         await delay(CONFIRMATION_POLL_INTERVAL_MS);
       }
     } catch (error) {
-      let errorMessage = "Error while building or signing transactions!";
-      let errorDescription = "Something went wrong. Please try again.";
-
-      if (isAppError(error)) {
-        errorMessage = getUserFriendlyMessage(error);
-        errorDescription = error.details || error.message;
-      } else {
-        const solanaError = ErrorHandler.handleSolanaError(error, 'refund');
-        errorMessage = getUserFriendlyMessage(solanaError);
-        errorDescription = solanaError.details || solanaError.message;
-      }
+      const appError = isAppError(error) ? error : ErrorHandler.handleSolanaError(error, 'refund');
 
       notify({
         type: "error",
-        message: errorMessage,
-        description: errorDescription,
+        message: errorMessage(appError)
       });
       console.error("Error while building or signing transactions:", error);
     } finally {
@@ -258,18 +249,16 @@ export const Refund: FC = () => {
     <div className="flex flex-col justify-center">
       <div className="flex flex-col">
         <h4 className="text-2x1 md:text-3xl text-center text-slate-300 my-2">
-          <p>Take back what wasn&apos;t claimed!</p>
+          <p>{t('subtitle')}</p>
           <p className="text-slate-500 text-2x1 leading-relaxed">
-            If the receiver hasn&apos;t claimed their drop, you can refund it here.
-            Select an unclaimed drop from the list and hit the refund button to
-            get your SOL back.
+            {t('intro')}
           </p>
         </h4>
         {connectedWallet.connected &&
           (activeDrops.length > 0 ? (
             <div>
               <h2 className="text-2xl font-bold mb-4 text-nova">
-                Your unclaimed drops
+                {t('listHeading')}
               </h2>
               <div className="flex flex-col items-center gap-4">
                 {activeDrops.map((drop) => {
@@ -294,7 +283,7 @@ export const Refund: FC = () => {
                           {drop.pubkey.toBase58()}
                         </div>
                         <div className="mb-2 md:mb-0 text-lg text-nova font-semibold md:ml-4">
-                          {drop.amount / LAMPORTS_PER_SOL} SOL
+                          {t('amountSol', { amount: drop.amount / LAMPORTS_PER_SOL })}
                         </div>
                       </div>
                     </div>
@@ -309,15 +298,19 @@ export const Refund: FC = () => {
                   disabled={!connectedWallet.connected || selectedDrops.length === 0 || isLoading}
                 >
                   <div className="hidden group-disabled:block text-white/35">
-                    {isLoading ? 'Processing...' : (!connectedWallet.connected ? 'Wallet not connected' : 'Select at least one drop')}
+                    {isLoading
+                      ? t('button.processing')
+                      : !connectedWallet.connected
+                      ? t('button.connectWallet')
+                      : t('button.selectOne')}
                   </div>
-                  <span className="block group-disabled:hidden">Refund</span>
+                  <span className="block group-disabled:hidden">{t('button.refund')}</span>
                 </button>
               </div>
             </div>
           ) : (
-            <div className="text-slate-500 text-2xl leading-relaxed">
-              No unclaimed drops
+            <div className="text-nova text-2xl leading-relaxed" >
+              {t('empty')}
             </div>
           ))}
       </div>

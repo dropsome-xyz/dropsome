@@ -1,5 +1,6 @@
 import { FC } from "react";
 import Link from "next/link";
+import { useTranslation } from "react-i18next";
 
 interface ReceiverDisclaimerDialogProps {
     isOpen: boolean;
@@ -7,6 +8,7 @@ interface ReceiverDisclaimerDialogProps {
 }
 
 export const ReceiverDisclaimerDialog: FC<ReceiverDisclaimerDialogProps> = ({ isOpen, onClose }) => {
+    const { t } = useTranslation('common');
     if (!isOpen) return null;
 
     return (
@@ -17,29 +19,29 @@ export const ReceiverDisclaimerDialog: FC<ReceiverDisclaimerDialogProps> = ({ is
                 aria-modal="true"
                 aria-labelledby="disclaimer-title"
             >
-                <h3 id="disclaimer-title" className="text-lg font-medium text-nova mb-4 text-center">Security & Safety Tips</h3>
+                <h3 id="disclaimer-title" className="text-lg font-medium text-nova mb-4 text-center">{t('security.title')}</h3>
                 <div className="mb-4 space-y-2 text-sm text-slate-300 text-left">
                     <p>
-                        <strong className="text-nova">Welcome to crypto!</strong> This wallet is your entry point. Use it to receive the drop and start your journey.
+                        <strong className="text-nova">{t('security.receiver.welcomeTitle')}</strong> {t('security.receiver.welcomeBody')}
                     </p>
                     <p>
-                        <strong className="text-nova">Set up your own wallet.</strong> After claiming, create a new Solana wallet where only you know the seed phrase, and transfer your SOL there.
+                        <strong className="text-nova">{t('security.receiver.ownWalletTitle')}</strong> {t('security.receiver.ownWalletBody')}
                     </p>
                     <p>
-                        <strong className="text-nova">Best practice for shared wallets.</strong> Since this wallet was created for the drop, it&apos;s recommended to use it temporarily and move funds to your personal wallet.
+                        <strong className="text-nova">{t('security.receiver.temporaryTitle')}</strong> {t('security.receiver.temporaryBody')}
                     </p>
                     <p>
-                        <strong className="text-nova">Use official wallet apps.</strong> Install wallet apps from official websites or app stores. Always verify you&apos;re using legitimate software.
+                        <strong className="text-nova">{t('security.receiver.officialAppsTitle')}</strong> {t('security.receiver.officialAppsBody')}
                     </p>
                 </div>
                 <div className="mb-4 text-s text-slate-400 text-center">
-                    <Link 
-                        href="https://docs.dropsome.xyz/legal/security-disclaimer/" 
-                        target="_blank" 
+                    <Link
+                        href="https://docs.dropsome.xyz/legal/security-disclaimer/"
+                        target="_blank"
                         rel="noopener noreferrer"
                         className="text-vortex hover:text-nova underline"
                     >
-                        Read more about security
+                        {t('security.readMore')}
                     </Link>
                 </div>
                 <div className="flex justify-end">
@@ -47,7 +49,7 @@ export const ReceiverDisclaimerDialog: FC<ReceiverDisclaimerDialogProps> = ({ is
                         className="px-4 py-2 bg-warning text-white rounded hover:bg-error font-medium"
                         onClick={onClose}
                     >
-                        Got it
+                        {t('security.gotIt')}
                     </button>
                 </div>
             </div>

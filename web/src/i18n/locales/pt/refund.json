@@ -1,0 +1,19 @@
+{
+  "heading": "Reembolse seu drop",
+  "subtitle": "Recupere o que não foi recebido!",
+  "intro": "Se a pessoa destinatária ainda não recebeu o drop, você pode reembolsá-lo aqui. Selecione um drop não recebido na lista e clique no botão de reembolso para recuperar seus SOL.",
+  "listHeading": "Seus drops não recebidos",
+  "empty": "Nenhum drop não recebido",
+  "amountSol": "{{amount}} SOL",
+  "button": {
+    "refund": "Reembolsar",
+    "processing": "Processando...",
+    "connectWallet": "Carteira não conectada",
+    "selectOne": "Selecione pelo menos um drop"
+  },
+  "toast": {
+    "success": "Drop reembolsado com sucesso!",
+    "error": "Erro ao criar ou assinar transações!",
+    "unexpected": "Algo deu errado. Tente novamente."
+  }
+}

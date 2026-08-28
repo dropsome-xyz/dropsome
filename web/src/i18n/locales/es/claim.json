@@ -1,0 +1,22 @@
+{
+  "heading": "Reclama tu drop",
+  "subtitle": "¡Solo tienes que seguir unos pasos sencillos para obtener tus SOL!",
+  "getWalletTitle": "Obtén un monedero",
+  "installInstruction": "Instala una aplicación de monedero para gestionar tus SOL:",
+  "walletPhantom": "Monedero Phantom",
+  "walletSolflare": "Monedero Solflare",
+  "walletBackpack": "Monedero Backpack",
+  "importPhraseTitle": "Importa la frase de recuperación",
+  "importPhraseBody": "Abre la aplicación de monedero, elige «Importar monedero» e introduce la frase de recuperación que aparece abajo.",
+  "completeTitle": "Completa la reclamación",
+  "completeBody": "Vuelve a este enlace, conecta el monedero creado con esta frase y aprueba la reclamación. Ningún otro monedero puede reclamar este drop.",
+  "phraseHeading": "Tu frase de recuperación para este drop",
+  "noRecord": "No encontramos un drop activo para este monedero. Comprueba que importaste la frase desde este enlace o que el drop ya se haya reclamado.",
+  "toast": {
+    "missingDataMessage": "Faltan los datos para reclamar",
+    "loadFailed": "No pudimos cargar la frase de recuperación",
+    "success": "Drop reclamado correctamente",
+    "error": "¡Error al reclamar el drop!",
+    "unexpected": "Algo salió mal. Inténtalo de nuevo."
+  }
+}

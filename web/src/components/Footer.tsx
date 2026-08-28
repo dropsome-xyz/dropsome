@@ -1,8 +1,10 @@
 import type { FC } from "react"
 import { Logo } from "./Logo"
 import { SocialLinks } from "./SocialLinks"
+import { useTranslation } from "react-i18next"
 
 export const Footer: FC = () => {
+    const { t } = useTranslation('common');
     return (
         <div className="flex w-full font-orbitron">
             <footer className="mt-auto border-t-2 border-[#141414] bg-black hover:text-white w-full">
@@ -24,19 +26,19 @@ export const Footer: FC = () => {
                                     href={process.env.NEXT_PUBLIC_DOCS_URL}
                                     className="text-secondary hover:text-white transition duration-150 ease-in-out"
                                 >
-                                    Documentation
+                                    {t('footer.documentation')}
                                 </a>
                                 <a
                                     href={process.env.NEXT_PUBLIC_PRIVACY_URL}
                                     className="text-secondary hover:text-white transition duration-150 ease-in-out"
                                 >
-                                    Privacy Policy
+                                    {t('footer.privacyPolicy')}
                                 </a>
                                 <a
                                     href={process.env.NEXT_PUBLIC_TERMS_URL}
                                     className="text-secondary hover:text-white transition duration-150 ease-in-out"
                                 >
-                                    Terms of Service
+                                    {t('footer.termsOfService')}
                                 </a>
                             </div>
                         </div>

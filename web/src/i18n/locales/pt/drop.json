@@ -1,0 +1,33 @@
+{
+  "heading": "Drope um pouco de SOL",
+  "tagline": "Dê o pontapé inicial na jornada cripto de alguém!",
+  "intro": "Informe a quantidade de SOL a enviar. A pessoa destinatária poderá receber o drop mais tarde, mesmo que ainda não tenha uma carteira. O Dropsome cria um link para receber que ela poderá usar quando estiver pronta.",
+  "amountLabel": "Informe a quantidade de SOL para o drop",
+  "appFeePerDrop": "Taxa do aplicativo:",
+  "feeCharged": "Taxa cobrada:",
+  "feeBelowThreshold": "< 0,0001 SOL",
+  "increaseAmount": "Aumentar quantidade",
+  "decreaseAmount": "Diminuir quantidade",
+  "button": {
+    "submit": "Dropar SOL",
+    "creating": "Criando seu drop...",
+    "connectWallet": "Conectar carteira",
+    "enterAmount": "Informe uma quantidade",
+    "belowMinimum": "A quantidade está abaixo do mínimo"
+  },
+  "link": {
+    "heading": "Compartilhe este link para receber",
+    "copy": "Copiar link",
+    "copiedToast": "Link copiado para a área de transferência",
+    "copyAlt": "Copiar o link para receber",
+    "hideAlt": "Ocultar o link para receber",
+    "warningTitle": "Não perca o link!",
+    "warningBody": "Os fundos já foram enviados, e este link é seu bilhete dourado! Certifique-se de copiá-lo antes de fechar, ou a pessoa destinatária não poderá receber o drop. Se você perdeu o link, será necessário reembolsar o drop e começar de novo.",
+    "closeAnyway": "Fechar mesmo assim"
+  },
+  "toast": {
+    "success": "SOL enviado com sucesso!",
+    "error": "Erro ao enviar os fundos!",
+    "unexpected": "Algo deu errado. Tente novamente."
+  }
+}

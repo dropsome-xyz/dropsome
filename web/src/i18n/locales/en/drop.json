@@ -1,0 +1,33 @@
+{
+  "heading": "Drop some SOL",
+  "tagline": "Kickstart someone's crypto journey!",
+  "intro": "Enter the amount of SOL to send. The recipient can claim the drop later, even if they do not have a wallet yet. Dropsome creates a claim link they can use when they are ready.",
+  "amountLabel": "Enter Amount to Drop",
+  "appFeePerDrop": "App fee: ",
+  "feeCharged": "Fee will be charged: ",
+  "feeBelowThreshold": "< 0.0001 SOL",
+  "increaseAmount": "Increase amount",
+  "decreaseAmount": "Decrease amount",
+  "button": {
+    "submit": "Drop SOL",
+    "creating": "Creating your drop...",
+    "connectWallet": "Connect wallet",
+    "enterAmount": "Enter an amount",
+    "belowMinimum": "Amount is below the minimum"
+  },
+  "link": {
+    "heading": "Share this claim link",
+    "copy": "Copy Link",
+    "copiedToast": "Link copied to clipboard",
+    "copyAlt": "Copy the claim link",
+    "hideAlt": "Hide the claim link",
+    "warningTitle": "Don't Lose the Link!",
+    "warningBody": "The funds are already sent, and this link is your golden ticket! Make sure you've copied it before closing, or the receiver won't be able to claim. If you missed it, you'll need to refund the drop and start over.",
+    "closeAnyway": "Close Anyway"
+  },
+  "toast": {
+    "success": "Successfully dropped some funds!",
+    "error": "Error while dropping funds!",
+    "unexpected": "Something went wrong. Please try again."
+  }
+}

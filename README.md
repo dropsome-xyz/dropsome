@@ -35,8 +35,13 @@
 - Rust
 - Solana CLI
 - Anchor
-- Node.js (>=16) and Yarn
+- **Node.js 22.x (LTS)** and Yarn
 - Docker (for verified builds)
+
+> **Note:** The project pins Node 22.x in `package.json` (`engines.node: "22.x"`) for Vercel compatibility. If running locally on a different Node version (e.g., 24.x), use `YARN_IGNORE_ENGINES=1` or `yarn --ignore-engines` to bypass the engine check:
+> ```bash
+> cd web && yarn --ignore-engines dev
+> ```
 
 ## Local Deployment & Testing
 

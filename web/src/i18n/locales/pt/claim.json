@@ -1,0 +1,22 @@
+{
+  "heading": "Receba seu drop",
+  "subtitle": "Bastam alguns passos simples para receber seus SOL!",
+  "getWalletTitle": "Obtenha uma carteira",
+  "installInstruction": "Instale um aplicativo de carteira para gerenciar seus SOL:",
+  "walletPhantom": "Carteira Phantom",
+  "walletSolflare": "Carteira Solflare",
+  "walletBackpack": "Carteira Backpack",
+  "importPhraseTitle": "Importe a frase de recuperação",
+  "importPhraseBody": "Abra o aplicativo da carteira, escolha \"Importar carteira\" e informe a frase de recuperação exibida abaixo.",
+  "completeTitle": "Conclua o recebimento",
+  "completeBody": "Volte para este link, conecte a carteira criada com esta frase e aprove o recebimento. Outra carteira não pode receber este drop.",
+  "phraseHeading": "Sua frase de recuperação para este drop",
+  "noRecord": "Não encontramos um drop ativo para esta carteira. Confira se você importou a frase deste link ou se o drop já foi recebido.",
+  "toast": {
+    "missingDataMessage": "Dados para receber ausentes",
+    "loadFailed": "Não foi possível carregar a frase de recuperação",
+    "success": "Drop recebido com sucesso",
+    "error": "Erro ao receber o drop!",
+    "unexpected": "Algo deu errado. Tente novamente."
+  }
+}

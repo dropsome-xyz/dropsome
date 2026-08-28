@@ -1,0 +1,33 @@
+{
+  "heading": "Haz un drop de SOL",
+  "tagline": "¡Impulsa el camino de alguien en el mundo cripto!",
+  "intro": "Introduce la cantidad de SOL que quieres enviar. El destinatario podrá reclamar el drop más tarde, aunque todavía no tenga un monedero. Dropsome crea un enlace para reclamarlo cuando esté preparado.",
+  "amountLabel": "Introduce la cantidad del drop",
+  "appFeePerDrop": "Comisión de la aplicación: ",
+  "feeCharged": "Se cobrará una comisión de: ",
+  "feeBelowThreshold": "< 0.0001 SOL",
+  "increaseAmount": "Aumentar cantidad",
+  "decreaseAmount": "Reducir cantidad",
+  "button": {
+    "submit": "Hacer un drop de SOL",
+    "creating": "Creando tu drop...",
+    "connectWallet": "Conectar monedero",
+    "enterAmount": "Introduce una cantidad",
+    "belowMinimum": "La cantidad es inferior al mínimo"
+  },
+  "link": {
+    "heading": "Comparte este enlace para reclamar",
+    "copy": "Copiar enlace",
+    "copiedToast": "Enlace copiado al portapapeles",
+    "copyAlt": "Copiar el enlace para reclamar",
+    "hideAlt": "Ocultar el enlace para reclamar",
+    "warningTitle": "¡No pierdas el enlace!",
+    "warningBody": "Los fondos ya se han enviado y este enlace es tu billete dorado. Asegúrate de copiarlo antes de cerrar; de lo contrario, el destinatario no podrá reclamar el drop. Si lo has perdido, tendrás que reembolsar el drop y empezar de nuevo.",
+    "closeAnyway": "Cerrar de todos modos"
+  },
+  "toast": {
+    "success": "¡Los fondos se han enviado correctamente!",
+    "error": "¡Error al enviar los fondos!",
+    "unexpected": "Algo salió mal. Inténtalo de nuevo."
+  }
+}
