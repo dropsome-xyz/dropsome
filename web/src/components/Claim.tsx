@@ -21,6 +21,7 @@ export const Claim: FC = () => {
     const [phrase, setPhrase] = useState('');
     const [isLoading, setIsLoading] = useState(false);
     const [isDisclaimerShown, setIsDisclaimerShown] = useState(false);
+    const [isPhraseVisible, setIsPhraseVisible] = useState(false);
     const isFetchingRecordRef = useRef(false);
 
     const getProvider = useMemo(() => {
@@ -238,10 +239,18 @@ export const Claim: FC = () => {
                                 className="absolute top-2 left-2 p-0 bg-transparent border-none cursor-pointer">
                                 <img src="/security_tip.svg" alt={t('common:alt.securityDisclaimer')} width={20} height={20} />
                             </button>
-                            <p className="text-2xl">{phrase}</p>
+                            <p className={isPhraseVisible ? "text-2xl" : "text-2xl blur-sm select-none"}>{phrase}</p>
                         </div>
                     </div>
                 </div>)}
+                <div className="w-full max-w-xs mx-auto mt-4">
+                    <button
+                        onClick={() => setIsPhraseVisible(!isPhraseVisible)}
+                        className="btn w-full bg-gradient-to-br from-vortex to-nova hover:from-white hover:to-nova text-nimbus font-orbitron"
+                    >
+                        {isPhraseVisible ? t('phrase.hide') : t('phrase.show')}
+                    </button>
+                </div>
             </div>
 
             <ReceiverDisclaimerDialog
