@@ -1,13 +1,37 @@
-import { FC, useState } from 'react';
+import { FC, useEffect, useState } from 'react';
 import dynamic from 'next/dynamic';
 import { useNetworkConfiguration } from '../contexts/NetworkConfigurationProvider';
 import { useTranslation } from "react-i18next";
+import { DEFAULT_CUSTOM_RPC_URL, getSafeRpcUrl, isValidRpcUrl } from '../utils/rpc';
+
+const RPC_UPDATE_DEBOUNCE_MS = 2000;
 
 const NetworkSwitcher: FC = () => {
   const { networkConfiguration, setNetworkConfiguration, customRpcUrl, setCustomRpcUrl } = useNetworkConfiguration();
   const { t } = useTranslation('common');
   const [showCustomInput, setShowCustomInput] = useState(false);
-  console.log(networkConfiguration);
+  const [customRpcDraft, setCustomRpcDraft] = useState(customRpcUrl);
+
+  useEffect(() => {
+    setCustomRpcDraft(customRpcUrl);
+  }, [customRpcUrl]);
+
+  useEffect(() => {
+    if (networkConfiguration !== 'custom' || customRpcDraft === customRpcUrl) {
+      return;
+    }
+
+    const timeoutId = window.setTimeout(() => {
+      const safeRpcUrl = isValidRpcUrl(customRpcDraft)
+        ? customRpcDraft.trim()
+        : DEFAULT_CUSTOM_RPC_URL;
+
+      setCustomRpcDraft(safeRpcUrl);
+      setCustomRpcUrl(getSafeRpcUrl(customRpcDraft));
+    }, RPC_UPDATE_DEBOUNCE_MS);
+
+    return () => window.clearTimeout(timeoutId);
+  }, [customRpcDraft, customRpcUrl, networkConfiguration, setCustomRpcUrl]);
 
   const handleNetworkChange = (network: string) => {
     setNetworkConfiguration(network);
@@ -34,8 +58,8 @@ const NetworkSwitcher: FC = () => {
           <input
             type="text"
             placeholder="http://localhost:8899"
-            value={customRpcUrl}
-            onChange={(e) => setCustomRpcUrl(e.target.value)}
+            value={customRpcDraft}
+            onChange={(e) => setCustomRpcDraft(e.target.value)}
             className="input input-bordered w-full max-w-xs"
           />
         </label>
